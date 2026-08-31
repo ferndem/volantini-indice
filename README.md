@@ -96,10 +96,15 @@ I selettori non si indovinano. Si esegue la Action a mano con
 testi che contengono «dal … al …» — **senza scrivere `indice.json`**. Da lì si
 scrivono i selettori, si mette `attiva: true`, e si esegue normalmente.
 
-## Ritmo
+## Ritmo, e come arriva su Pages
 
 Due volte al giorno (`cron: 17 5,17 * * *`) più l'avvio a mano. Il commit
 avviene **solo se `indice.json` è cambiato**, per non fare rumore.
+
+**Pages pubblica dal ramo `main`**, non dalle Action: il commit dell'indice fa
+ripartire Pages da solo. Per questo il workflow non ha un job di deploy — ne
+aveva uno, ed era sia inutile sia rotto, perché `deploy-pages` pretende che la
+sorgente sia impostata su «GitHub Actions».
 
 ## Il prezzo, detto chiaro
 
