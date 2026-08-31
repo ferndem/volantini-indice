@@ -209,7 +209,11 @@ viewport — è saltata fuori in due minuti.
 
 ## Ritmo, e come arriva su Pages
 
-Due volte al giorno (`cron: 17 5,17 * * *`) più l'avvio a mano. Il commit
+Due volte al giorno (`cron: 17 5,17 * * *`), a ogni **push su `main`**, e a
+mano. L'innesco su push c'è perché senza, una correzione ai selettori restava
+invisibile fino al cron successivo — e il commit che il job stesso fa **non
+rinnesca il workflow**: GitHub non fa mai ripartire una Action su un push
+autenticato con `GITHUB_TOKEN`. Il commit
 avviene **solo se `indice.json` è cambiato**, per non fare rumore.
 
 **Pages pubblica dalle Action, non dal ramo**, e il job `pubblica` serve
