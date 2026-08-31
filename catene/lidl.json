@@ -1,0 +1,9 @@
+{
+  "catena": "Lidl",
+  "indirizzo": "https://www.lidl.it/c/volantini/s10005610",
+  "selettorePagina": "img",
+  "attributoPagina": "src",
+  "selettoreValidita": null,
+  "attiva": false,
+  "nota": "Selettori da tarare col sopralluogo."
+}

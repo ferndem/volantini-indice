@@ -1,0 +1,9 @@
+{
+  "catena": "Eurospin",
+  "indirizzo": "https://www.eurospin.it/volantini/",
+  "selettorePagina": "img",
+  "attributoPagina": "src",
+  "selettoreValidita": null,
+  "attiva": false,
+  "nota": "Selettori da tarare col sopralluogo."
+}

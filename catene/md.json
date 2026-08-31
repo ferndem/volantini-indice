@@ -1,0 +1,9 @@
+{
+  "catena": "MD",
+  "indirizzo": "https://www.md-italia.com/volantini/",
+  "selettorePagina": "img",
+  "attributoPagina": "src",
+  "selettoreValidita": null,
+  "attiva": false,
+  "nota": "Selettori da tarare col sopralluogo: eseguire il workflow con ispeziona=true e leggerne l'uscita. Finche' attiva e' false la catena non viene aperta."
+}

@@ -1,0 +1,74 @@
+name: indice
+
+on:
+  schedule:
+    - cron: '17 5,17 * * *'
+  workflow_dispatch:
+    inputs:
+      ispeziona:
+        description: 'Sopralluogo: stampa cosa trova senza scrivere indice.json'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: indice
+  cancel-in-progress: false
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: node prova.mjs
+
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium
+
+      - name: Sopralluogo
+        if: inputs.ispeziona
+        run: node raccogli.mjs --ispeziona
+
+      - name: Raccogli
+        if: ${{ !inputs.ispeziona }}
+        run: node raccogli.mjs
+
+      - name: Pubblica se e' cambiato
+        if: ${{ !inputs.ispeziona }}
+        run: |
+          if git diff --quiet -- indice.json; then
+            echo "indice.json invariato: nessun commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add indice.json
+          git commit -m "indice: $(date -u +%F)"
+          git push
+
+  pagine:
+    needs: raccogli
+    if: ${{ !inputs.ispeziona }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
