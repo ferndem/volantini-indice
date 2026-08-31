@@ -76,7 +76,7 @@ async function raccogliVolantinoPiu(browser, adattatore) {
     if (!copertina) continue;
     const singolo = await apri(browser, indirizzo);
     try {
-      const testo = await singolo.evaluate(() => document.body.innerText);
+      const testo = await singolo.evaluate(() => document.body.textContent ?? '');
       const [dal, al] = separaValidita(testo.match(/[Dd]al\s+[\d/.]+\s+al\s+[\d/.]+/)?.[0] ?? null);
       const pagine = await enumeraDaCopertine(singolo, [copertina]);
       voci.push({
