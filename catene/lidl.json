@@ -5,5 +5,5 @@
   "attributoPagina": "src",
   "selettoreValidita": ".flyer__name",
   "attiva": false,
-  "nota": "img.flyer__image sono COPERTINE a 236x400 via imgproxy (rs:fit:400:400). Validita' pronta in .flyer__name: «Offerte valide dal 27/08 al 2/09». Servono le pagine interne, non la copertina"
+  "nota": "FUORI PER RAGIONE TECNICA, verificata 2026-08-31. Gli URL sono imgproxy FIRMATI e la firma copre il ridimensionamento: alzare rs:fit:400:400 a 1600 da 403, e toglierlo del tutto da 403. Restano 236x400, illeggibili all'OCR. Il path in base64 decodifica a .../page-01_....png: sono comunque solo COPERTINE, non le pagine interne. La validita' sarebbe pronta in .flyer__name. Non e' «non l'ho ancora fatto»: senza un'altra sorgente Lidl non si puo' fare"
 }

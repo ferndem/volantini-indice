@@ -154,8 +154,21 @@ export function testoLeggibile(html) {
     .trim();
 }
 
+export function validitaDaTesto(testo) {
+  if (typeof testo !== 'string') return null;
+  return testo.replace(/\s+/g, ' ').match(VALIDITA)?.[0] ?? null;
+}
+
 export function validitaDaHtml(html) {
-  return testoLeggibile(html).match(VALIDITA)?.[0] ?? null;
+  return validitaDaTesto(testoLeggibile(html));
+}
+
+export function primaValidita(testi) {
+  for (const testo of testi ?? []) {
+    const trovata = validitaDaTesto(testo);
+    if (trovata) return trovata;
+  }
+  return null;
 }
 
 function piega(testo) {

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, giornoIso, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, titoloDaHtml, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, giornoIso, primaValidita, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, titoloDaHtml, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -237,5 +237,26 @@ assert.equal(titoloDaHtml('<title lang="it">Pro7</title>'), 'Pro7', 'gli attribu
 assert.equal(titoloDaHtml('<html><head></head>'), null);
 assert.equal(titoloDaHtml('<title>   </title>'), null, 'un titolo di soli spazi non e\' un formato');
 assert.equal(titoloDaHtml(null), null);
+
+// UN SELETTORE DI VALIDITA' E' UN INSIEME DI CANDIDATI, non un puntamento.
+// Su MD «.elementor-heading-title» prende quattordici titoli e la data sta nel
+// tredicesimo: leggere solo il primo scarta la voce senza dire perche'.
+assert.equal(
+  primaValidita(['Lettere dall\'Italia', 'Buona Spesa!', 'dal 25 Agosto al 6 Settembre 2026']),
+  'dal 25 Agosto al 6 Settembre 2026',
+);
+assert.deepEqual(
+  separaValidita(primaValidita(['Vivo Meglio', 'dal 25 Agosto al 6 Settembre 2026'])),
+  ['2026-08-25', '2026-09-06'],
+);
+assert.equal(
+  primaValidita(['dal 01/09/2026 al 10/09/2026', 'dal 20/09/2026 al 30/09/2026']),
+  'dal 01/09/2026 al 10/09/2026',
+  'vince il primo che porta una data, non l\'ultimo',
+);
+assert.equal(primaValidita(['niente', 'nemmeno qui']), null);
+assert.equal(primaValidita([]), null);
+assert.equal(primaValidita(null), null);
+assert.equal(primaValidita([null, 42, 'dal 1/9/2026 al 2/9/2026']), 'dal 1/9/2026 al 2/9/2026');
 
 console.log('prova.mjs: tutto verde');

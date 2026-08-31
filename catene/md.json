@@ -1,9 +1,9 @@
 {
   "catena": "MD",
   "indirizzo": "https://www.mdspa.it/volantino/",
-  "selettorePagina": "[style*='SLIDESHOW-Promo']",
+  "selettorePagina": null,
   "attributoPagina": "sfondo",
   "selettoreValidita": ".elementor-heading-title",
   "attiva": false,
-  "nota": "Quattro pagine come sfondi CSS. La validita' e' «dal 25 Agosto al 6 Settembre 2026» ma il selettore .elementor-heading-title prende anche altri titoli: da restringere"
+  "nota": "VERIFICATO 2026-08-31: su questa pagina NON ci sono pagine di volantino. Gli sfondi [style*='SLIDESHOW-Promo'] che il selettore prendeva sono banner QUADRATI 900x900 da ~80 KB — insegne di marca, non pagine: darli all'OCR produrrebbe slogan. Le uniche immagini oltre i 500px sono due footer. Nessun iframe, e l'unico link e' un 'volantino/#'. La validita' invece c'e' ed e' corretta: «dal 25 Agosto al 6 Settembre 2026» in un h3.elementor-heading-title. Manca il visore vero, che va ancora trovato"
 }

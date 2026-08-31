@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, titoloDaHtml, validitaDaHtml, voceValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, primaValidita, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, titoloDaHtml, validitaDaHtml, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
@@ -139,11 +139,11 @@ async function raccogliCatena(browser, adattatore, bersaglio) {
       attributo,
     );
 
-    const testoValidita = adattatore.selettoreValidita
-      ? await pagina.$eval(adattatore.selettoreValidita, (n) => n.textContent).catch(() => null)
-      : null;
+    const candidatiValidita = adattatore.selettoreValidita
+      ? await pagina.$$eval(adattatore.selettoreValidita, (nodi) => nodi.map((n) => n.textContent ?? '')).catch(() => [])
+      : [];
 
-    const [dal, al] = separaValidita(testoValidita);
+    const [dal, al] = separaValidita(primaValidita(candidatiValidita));
     const assolute = [...new Set(pagine.map((p) => new URL(p, bersaglio.indirizzo).toString()))];
 
     return {

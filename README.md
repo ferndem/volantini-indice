@@ -84,6 +84,13 @@ la parte che decide qualcosa dev'essere provabile senza accendere niente.
 }
 ```
 
+**Il `selettoreValidita` è un insieme di candidati, non un puntamento.** Si
+leggono *tutti* i nodi che corrispondono e vince il primo che porta una data.
+Su MD `.elementor-heading-title` prende quattordici titoli e la data sta nel
+tredicesimo: leggendo solo il primo la voce cadeva senza dire perché. Così il
+selettore può restare largo, che è l'unico modo di non ritararlo a ogni
+restyling.
+
 `attiva: false` la esclude senza cancellarla. **Tutte nascono così**: i
 selettori vanno tarati sul sito vero prima di accenderle.
 
