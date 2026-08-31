@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, giornoIso, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, titoloDaHtml, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -212,5 +212,30 @@ assert.equal(percheNonValida({ ...buona, validoDal: null, validoAl: null }), 'ma
 assert.equal(percheNonValida({ ...buona, pagine: [] }), 'manca pagine');
 assert.equal(percheNonValida({ ...buona, pagine: ['/relativa.jpg'] }), 'manca pagine non assolute');
 assert.equal(percheNonValida(null), 'voce assente');
+
+// IL FORMATO DEL NEGOZIO sta nel <title>, ed e' cio' che distingue i 14
+// volantini Deco': cinque formati per piu' aree. L'app lo filtra sul telefono.
+assert.equal(formatoDaTitolo('Deco MaxiStore - Sottocosto', 'Decò'), 'MaxiStore');
+assert.equal(formatoDaTitolo('Deco Supermercati - Sottocosto', 'Decò'), 'Supermercati');
+assert.equal(formatoDaTitolo('Deco Superfreddo - Sottocosto', 'Decò'), 'Superfreddo');
+assert.equal(
+  formatoDaTitolo('Pro7 Supermercati - Il Gusto del Buongiorno', 'Pro7'),
+  'Supermercati',
+  'vale anche dove il nome della catena porta una cifra',
+);
+assert.equal(
+  formatoDaTitolo('Deco - Sottocosto', 'Decò'),
+  null,
+  'senza niente oltre al nome della catena non c\'e\' formato: il campo non si scrive',
+);
+assert.equal(formatoDaTitolo('Decò', 'Decò'), null, 'nemmeno senza trattino');
+assert.equal(formatoDaTitolo(null, 'Decò'), null);
+assert.equal(formatoDaTitolo('Deco Market - Sottocosto', null), null);
+
+assert.equal(titoloDaHtml('<html><head><title>  Deco  Market -\n Sottocosto </title>'), 'Deco Market - Sottocosto');
+assert.equal(titoloDaHtml('<title lang="it">Pro7</title>'), 'Pro7', 'gli attributi del tag non disturbano');
+assert.equal(titoloDaHtml('<html><head></head>'), null);
+assert.equal(titoloDaHtml('<title>   </title>'), null, 'un titolo di soli spazi non e\' un formato');
+assert.equal(titoloDaHtml(null), null);
 
 console.log('prova.mjs: tutto verde');

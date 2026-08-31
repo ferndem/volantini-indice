@@ -96,6 +96,25 @@ catena che il sopralluogo non ha ancora localizzato, e la `nota` dice perché.
 `attributoPagina: "sfondo"` legge l'immagine dal **CSS** invece che dall'`src`:
 serve dove le pagine del volantino sono `background-image`, come su MD.
 
+### Il formato del negozio
+
+Decò pubblica **quattordici volantini insieme**, e la differenza fra loro è il
+**formato del punto vendita**: MaxiStore, Supermercati, Market, Superfreddo,
+Gourmet. Sta nel `<title>` della pagina del volantino, e la piattaforma
+`volantinopiu` lo scrive nel campo facoltativo **`formato`**.
+
+**L'area invece non è dichiarata da nessuna parte**, ed è la ragione per cui
+queste due catene restano senza `zona`: una zona indovinata sparirebbe proprio
+a chi serve.
+
+Come per le zone, **il filtro sta sul telefono** e vale la stessa regola: se il
+nome del negozio dell'utente non nomina nessuno dei formati dell'indice, li
+vede **tutti** — non si nasconde mai per ignoranza. Una voce **senza** `formato`
+si vede sempre.
+
+Il campo è **additivo**: un'app che non lo conosce continua a leggere l'indice
+come prima.
+
 ### Le zone
 
 Sei catene pubblicano **volantini diversi per area**. Un adattatore può quindi

@@ -1,13 +1,14 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { bersagli, copertinaVolantinoPiu, daAprire, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, validitaDaHtml, voceValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, titoloDaHtml, validitaDaHtml, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
 const ATTESA_PAGINA = 30_000;
 const TETTO_PAGINE = 80;
 const TETTO_VOLANTINI = 20;
+const TENTATIVI_PAGINA = 3;
 const AGENTE = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) granrisparmiofm-indice';
 
 async function adattatori({ ancheLeSpente }) {
@@ -59,8 +60,15 @@ async function scarica(indirizzo) {
 }
 
 async function esiste(indirizzo) {
-  const risposta = await fetch(indirizzo, { method: 'HEAD', headers: { 'user-agent': AGENTE } }).catch(() => null);
-  return Boolean(risposta?.ok);
+  for (let tentativo = 0; tentativo < TENTATIVI_PAGINA; tentativo += 1) {
+    const risposta = await fetch(indirizzo, { method: 'HEAD', headers: { 'user-agent': AGENTE } })
+      .catch(() => null);
+    if (risposta?.ok) return true;
+    if (risposta && risposta.status >= 400 && risposta.status < 500) return false;
+    await new Promise((r) => setTimeout(r, 500 * (tentativo + 1)));
+  }
+  console.log(`  ${indirizzo} non risponde: il volantino si ferma qui, e potrebbe essere piu' lungo`);
+  return false;
 }
 
 async function scorriTutto(pagina) {
@@ -98,6 +106,7 @@ async function raccogliVolantinoPiu(browser, adattatore, bersaglio) {
     const trovata = validitaDaHtml(html ?? '');
     if (html !== null && !trovata) console.log(`  nessuna data in ${fonte}`);
     const [dal, al] = separaValidita(trovata);
+    const formato = formatoDaTitolo(titoloDaHtml(html ?? ''), adattatore.catena);
     voci.push({
       catena: adattatore.catena,
       validoDal: dal,
@@ -105,6 +114,7 @@ async function raccogliVolantinoPiu(browser, adattatore, bersaglio) {
       fonte,
       pagine: await enumeraDaCopertine([copertinaVolantinoPiu(numero)]),
       zona: bersaglio.zona ?? undefined,
+      formato: formato ?? undefined,
     });
   }
   return voci;
@@ -240,7 +250,7 @@ async function main() {
       }
       const buone = raccolte.filter(voceValida);
       voci.push(...buone);
-      for (const v of buone) console.log(`ok   ${v.catena}${v.zona ? ` [${v.zona.nome}]` : ''}: ${v.pagine.length} pagine, ${v.validoDal}→${v.validoAl}`);
+      for (const v of buone) console.log(`ok   ${v.catena}${v.formato ? ` ${v.formato}` : ''}${v.zona ? ` [${v.zona.nome}]` : ''}: ${v.pagine.length} pagine, ${v.validoDal}→${v.validoAl}`);
       for (const v of raccolte.filter((r) => !voceValida(r))) {
         console.log(`scarto ${adattatore.catena}: ${percheNonValida(v)} — ${v?.fonte ?? '?'}`);
       }

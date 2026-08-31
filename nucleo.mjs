@@ -157,3 +157,27 @@ export function testoLeggibile(html) {
 export function validitaDaHtml(html) {
   return testoLeggibile(html).match(VALIDITA)?.[0] ?? null;
 }
+
+function piega(testo) {
+  return testo.normalize('NFD').replace(/\p{Mn}+/gu, '').toLowerCase();
+}
+
+export function titoloDaHtml(html) {
+  if (typeof html !== 'string') return null;
+  const grezzo = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1];
+  const pulito = grezzo?.replace(/\s+/g, ' ').trim();
+  return pulito || null;
+}
+
+export function formatoDaTitolo(titolo, catena) {
+  if (typeof titolo !== 'string' || typeof catena !== 'string') return null;
+  const testa = titolo.split(/\s[-\u2013\u2014|]\s/)[0].trim();
+  const dellaCatena = new Set(piega(catena).split(/[^\p{L}\p{N}]+/u).filter(Boolean));
+  const resto = testa
+    .split(/\s+/)
+    .filter((parola) => {
+      const nuda = piega(parola).replace(/[^\p{L}\p{N}]+/gu, '');
+      return nuda && !dellaCatena.has(nuda);
+    });
+  return resto.length ? resto.join(' ') : null;
+}
