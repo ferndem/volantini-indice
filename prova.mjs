@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida, zonaValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, percheNonValida, separaValidita, voceValida, zonaValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -132,5 +132,14 @@ assert.equal(zonaValida(null), null);
 
 // Una catena le cui zone sono TUTTE rotte non si apre nemmeno nel sopralluogo
 assert.deepEqual(daAprire([{ catena: 'Y', zone: [{ nome: 'Z' }] }], { ancheLeSpente: true }), []);
+
+// UN FALLIMENTO DEVE DIRE PERCHE'. «voce incompleta» ha fatto perdere due giri
+// di CI il 2026-08-31: non si sapeva se mancasse la data o le pagine.
+assert.equal(percheNonValida(buona), null);
+assert.equal(percheNonValida({ ...buona, validoDal: null }), 'manca validoDal');
+assert.equal(percheNonValida({ ...buona, validoDal: null, validoAl: null }), 'manca validoDal, validoAl');
+assert.equal(percheNonValida({ ...buona, pagine: [] }), 'manca pagine');
+assert.equal(percheNonValida({ ...buona, pagine: ['/relativa.jpg'] }), 'manca pagine non assolute');
+assert.equal(percheNonValida(null), 'voce assente');
 
 console.log('prova.mjs: tutto verde');

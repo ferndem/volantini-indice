@@ -42,6 +42,21 @@ function iso(anno, mese, giorno) {
   return `${anno}-${String(mese).padStart(2, '0')}-${String(giorno).padStart(2, '0')}`;
 }
 
+export function percheNonValida(voce) {
+  if (!voce) return 'voce assente';
+  const mancanti = [];
+  if (!voce.catena) mancanti.push('catena');
+  if (!voce.fonte) mancanti.push('fonte');
+  if (!voce.validoDal) mancanti.push('validoDal');
+  if (!voce.validoAl) mancanti.push('validoAl');
+  if (!Array.isArray(voce.pagine) || voce.pagine.length === 0) {
+    mancanti.push('pagine');
+  } else if (!voce.pagine.every((p) => typeof p === 'string' && p.startsWith('http'))) {
+    mancanti.push('pagine non assolute');
+  }
+  return mancanti.length === 0 ? null : `manca ${mancanti.join(', ')}`;
+}
+
 export function voceValida(voce) {
   if (!voce) return false;
   if (!voce.catena || !voce.fonte) return false;

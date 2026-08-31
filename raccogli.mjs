@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, percheNonValida, separaValidita, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
@@ -77,7 +77,11 @@ async function raccogliVolantinoPiu(browser, adattatore, bersaglio) {
     const singolo = await apri(browser, indirizzo);
     try {
       const testo = await singolo.evaluate(() => document.body.textContent ?? '');
-      const [dal, al] = separaValidita(testo.match(/[Dd]al\s+[\d/.]+\s+al\s+[\d/.]+/)?.[0] ?? null);
+      const trovata = testo.match(/[Dd]al\s+[\d/.]+\s+al\s+[\d/.]+/)?.[0] ?? null;
+      if (!trovata) {
+        console.log(`  nessuna data in ${indirizzo} — ${testo.replace(/\s+/g, ' ').trim().slice(0, 160)}`);
+      }
+      const [dal, al] = separaValidita(trovata);
       const pagine = await enumeraDaCopertine(singolo, [copertina]);
       voci.push({
         catena: adattatore.catena,
@@ -226,8 +230,9 @@ async function main() {
       const buone = raccolte.filter(voceValida);
       voci.push(...buone);
       for (const v of buone) console.log(`ok   ${v.catena}${v.zona ? ` [${v.zona.nome}]` : ''}: ${v.pagine.length} pagine, ${v.validoDal}→${v.validoAl}`);
-      const scartate = raccolte.length - buone.length;
-      if (scartate > 0) console.log(`vuote ${adattatore.catena}: ${scartate} voci incomplete, escono dall'indice`);
+      for (const v of raccolte.filter((r) => !voceValida(r))) {
+        console.log(`scarto ${adattatore.catena}: ${percheNonValida(v)} — ${v?.fonte ?? '?'}`);
+      }
     } catch (errore) {
       console.log(`caduta ${adattatore.catena}: ${errore.message}`);
     }
