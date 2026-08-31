@@ -1,7 +1,7 @@
 {
   "catena": "Pro7",
-  "indirizzo": "https://pro7.volantinopiu.com/",
+  "indirizzo": "https://pro7.it/volantini",
   "piattaforma": "volantinopiu",
   "attiva": true,
-  "nota": "Stessa piattaforma di Deco'. Spostata da pro7.it/volantini all'indice della piattaforma, che elenca tutti i volantini con la loro validita'"
+  "nota": "NON usare pro7.volantinopiu.com: e' la landing generica della piattaforma e non elenca niente. I link ai volantini stanno su pro7.it/volantini, INIETTATI VIA JS — curl non li vede, il browser si'"
 }
