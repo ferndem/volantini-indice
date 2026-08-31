@@ -96,6 +96,35 @@ catena che il sopralluogo non ha ancora localizzato, e la `nota` dice perché.
 `attributoPagina: "sfondo"` legge l'immagine dal **CSS** invece che dall'`src`:
 serve dove le pagine del volantino sono `background-image`, come su MD.
 
+### Le zone
+
+Sei catene pubblicano **volantini diversi per area**. Un adattatore può quindi
+dichiarare un indirizzo **per zona**:
+
+```json
+{
+  "catena": "Todis",
+  "zone": [
+    { "nome": "Lazio",  "indirizzo": "https://todis.it/volantini-lazio/",
+      "lat": 41.89, "lon": 12.48, "raggioKm": 120 },
+    { "nome": "Puglia", "indirizzo": "https://todis.it/volantini-puglia/",
+      "lat": 41.12, "lon": 16.87, "raggioKm": 180 }
+  ]
+}
+```
+
+Ogni zona diventa **una voce sua** nell'indice, e l'app la mostra solo a chi fa
+la spesa nel raggio — **filtrando sul telefono**, su questo file che resta
+identico per tutti. Una voce **senza** zona è nazionale e si vede ovunque.
+
+**Una zona rotta si scarta senza portare giù le altre** della stessa catena, ed
+è la stessa disciplina difensiva del resto.
+
+Un adattatore a indirizzo singolo può portare una `zona` invece di `zone`: serve
+dove il sito dà un volantino solo ma **legato a un punto vendita** — su
+Carrefour l'elenco che il runner vede dipende da dove sta il runner, quindi la
+zona va **fissata**, non lasciata alla geolocalizzazione del runner.
+
 `piattaforma: "volantinopiu"` gestisce le catene servite da *volantinopiu*
 (Decò, Pro7): apre l'indice, segue ogni `volantinoNNNNNNN.html`, ne legge la
 validità e **deriva le pagine dalle prime cinque cifre del numero**. Produce

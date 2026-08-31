@@ -57,10 +57,33 @@ export function separaValidita(testo) {
   return [giornoIso(pezzi[0]), giornoIso(pezzi[1])];
 }
 
+export function zonaValida(zona) {
+  if (!zona || typeof zona !== 'object') return null;
+  const { nome, lat, lon, raggioKm } = zona;
+  if (typeof nome !== 'string' || !nome.trim()) return null;
+  if (typeof lat !== 'number' || typeof lon !== 'number') return null;
+  if (typeof raggioKm !== 'number' || !(raggioKm > 0)) return null;
+  return { nome: nome.trim(), lat, lon, raggioKm };
+}
+
+export function bersagli(adattatore) {
+  const indirizzoValido = (u) => typeof u === 'string' && u.startsWith('http');
+
+  if (Array.isArray(adattatore?.zone)) {
+    return adattatore.zone
+      .filter((z) => indirizzoValido(z?.indirizzo) && zonaValida(z))
+      .map((z) => ({ indirizzo: z.indirizzo, zona: zonaValida(z) }));
+  }
+  if (indirizzoValido(adattatore?.indirizzo)) {
+    return [{ indirizzo: adattatore.indirizzo, zona: zonaValida(adattatore?.zona) }];
+  }
+  return [];
+}
+
 export function daAprire(adattatori, { ancheLeSpente }) {
-  const conIndirizzo = adattatori.filter((a) => typeof a.indirizzo === 'string' && a.indirizzo.startsWith('http'));
-  if (ancheLeSpente) return conIndirizzo;
-  return conIndirizzo.filter((a) => a.attiva !== false);
+  const apribili = adattatori.filter((a) => bersagli(a).length > 0);
+  if (ancheLeSpente) return apribili;
+  return apribili.filter((a) => a.attiva !== false);
 }
 
 export function paginaNumerata(copertina, numero) {

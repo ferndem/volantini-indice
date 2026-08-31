@@ -1,9 +1,15 @@
 {
   "catena": "Carrefour Market",
   "indirizzo": "https://www.carrefour.it/volantino",
+  "zona": {
+    "nome": "Napoli",
+    "lat": 40.85,
+    "lon": 14.27,
+    "raggioKm": 60
+  },
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "PER PUNTO VENDITA, e l'elenco dipende da DOVE STA IL RUNNER: sono usciti solo negozi milanesi. Per la Campania serve fissare un id di negozio"
+  "nota": "PER PUNTO VENDITA e l'elenco DIPENDE DA DOVE STA IL RUNNER: dal sopralluogo sono usciti solo negozi milanesi. Serve l'indirizzo diretto di un negozio campano, nella forma /volantino/<slug>/<id>, e la zona qui sopra ne descrive il bacino"
 }

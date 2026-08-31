@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
@@ -58,8 +58,8 @@ async function scorriTutto(pagina) {
   await pagina.waitForLoadState('networkidle', { timeout: 12_000 }).catch(() => {});
 }
 
-async function raccogliVolantinoPiu(browser, adattatore) {
-  const indice = await apri(browser, adattatore.indirizzo);
+async function raccogliVolantinoPiu(browser, adattatore, bersaglio) {
+  const indice = await apri(browser, bersaglio.indirizzo);
   let indirizzi;
   try {
     indirizzi = await indice.$$eval(
@@ -84,6 +84,7 @@ async function raccogliVolantinoPiu(browser, adattatore) {
         validoDal: dal, validoAl: al,
         fonte: indirizzo,
         pagine,
+        zona: bersaglio.zona ?? undefined,
       });
     } finally {
       await singolo.close();
@@ -92,8 +93,8 @@ async function raccogliVolantinoPiu(browser, adattatore) {
   return voci;
 }
 
-async function raccogliCatena(browser, adattatore) {
-  const pagina = await apri(browser, adattatore.indirizzo);
+async function raccogliCatena(browser, adattatore, bersaglio) {
+  const pagina = await apri(browser, bersaglio.indirizzo);
   try {
     if (adattatore.selettorePagina) {
       await pagina.waitForSelector(adattatore.selettorePagina, { timeout: ATTESA_SELETTORE });
@@ -116,14 +117,15 @@ async function raccogliCatena(browser, adattatore) {
       : null;
 
     const [dal, al] = separaValidita(testoValidita);
-    const assolute = [...new Set(pagine.map((p) => new URL(p, adattatore.indirizzo).toString()))];
+    const assolute = [...new Set(pagine.map((p) => new URL(p, bersaglio.indirizzo).toString()))];
 
     return {
       catena: adattatore.catena,
       validoDal: dal ?? adattatore.validoDal ?? null,
       validoAl: al ?? adattatore.validoAl ?? null,
-      fonte: adattatore.indirizzo,
+      fonte: bersaglio.indirizzo,
       pagine: adattatore.enumeraPagine ? await enumeraDaCopertine(pagina, assolute) : assolute,
+      zona: bersaglio.zona ?? undefined,
     };
   } finally {
     await pagina.close();
@@ -145,8 +147,8 @@ async function enumeraDaCopertine(pagina, copertine) {
   return [...new Set(tutte)];
 }
 
-async function ispeziona(browser, adattatore) {
-  const pagina = await apri(browser, adattatore.indirizzo);
+async function ispeziona(browser, adattatore, bersaglio) {
+  const pagina = await apri(browser, bersaglio.indirizzo);
   try {
     const trovato = await pagina.evaluate(() => {
       const assoluto = (u) => { try { return new URL(u, location.href).toString(); } catch { return null; } };
@@ -191,7 +193,7 @@ async function ispeziona(browser, adattatore) {
           .slice(0, 8),
       };
     });
-    console.log(`\n=== ${adattatore.catena} — ${adattatore.indirizzo} ===`);
+    console.log(`\n=== ${adattatore.catena}${bersaglio.zona ? ` [${bersaglio.zona.nome}]` : ''} — ${bersaglio.indirizzo} ===`);
     console.log(JSON.stringify(trovato, null, 2));
   } finally {
     await pagina.close();
@@ -212,15 +214,18 @@ async function main() {
   for (const adattatore of catene) {
     try {
       if (soloIspezione) {
-        await ispeziona(browser, adattatore);
+        for (const bersaglio of bersagli(adattatore)) await ispeziona(browser, adattatore, bersaglio);
         continue;
       }
-      const raccolte = adattatore.piattaforma === 'volantinopiu'
-        ? await raccogliVolantinoPiu(browser, adattatore)
-        : [await raccogliCatena(browser, adattatore)];
+      const raccolte = [];
+      for (const bersaglio of bersagli(adattatore)) {
+        raccolte.push(...(adattatore.piattaforma === 'volantinopiu'
+          ? await raccogliVolantinoPiu(browser, adattatore, bersaglio)
+          : [await raccogliCatena(browser, adattatore, bersaglio)]));
+      }
       const buone = raccolte.filter(voceValida);
       voci.push(...buone);
-      for (const v of buone) console.log(`ok   ${v.catena}: ${v.pagine.length} pagine, ${v.validoDal}→${v.validoAl}`);
+      for (const v of buone) console.log(`ok   ${v.catena}${v.zona ? ` [${v.zona.nome}]` : ''}: ${v.pagine.length} pagine, ${v.validoDal}→${v.validoAl}`);
       const scartate = raccolte.length - buone.length;
       if (scartate > 0) console.log(`vuote ${adattatore.catena}: ${scartate} voci incomplete, escono dall'indice`);
     } catch (errore) {

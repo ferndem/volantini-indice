@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida, zonaValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -100,5 +100,37 @@ assert.equal(copertinaVolantinoPiu('https://x/volantino2852200.htm'), 'https://r
 assert.equal(copertinaVolantinoPiu('https://deco.volantinopiu.com/'), null, 'l\'indice non e\' un volantino');
 assert.equal(copertinaVolantinoPiu('https://x/volantino12.html'), null, 'numero troppo corto: non si indovina');
 assert.equal(copertinaVolantinoPiu(''), null);
+
+// Una catena che pubblica per zona ha un indirizzo PER ZONA: Todis serve
+// /volantini-lazio/, -puglia/, -sicilia/... Ogni zona diventa una voce sua.
+const perZona = {
+  catena: 'Todis', attiva: true,
+  zone: [
+    { nome: 'Lazio', indirizzo: 'https://todis.it/volantini-lazio/', lat: 41.89, lon: 12.48, raggioKm: 120 },
+    { nome: 'Puglia', indirizzo: 'https://todis.it/volantini-puglia/', lat: 41.12, lon: 16.87, raggioKm: 150 },
+  ],
+};
+assert.equal(bersagli(perZona).length, 2, 'una zona, un bersaglio');
+assert.equal(bersagli(perZona)[0].zona.nome, 'Lazio');
+assert.equal(bersagli(perZona)[1].indirizzo, 'https://todis.it/volantini-puglia/');
+
+// Un adattatore normale resta un bersaglio solo, senza zona: e' nazionale
+assert.deepEqual(bersagli(accesa), [{ indirizzo: 'https://esempio/lidl', zona: null }]);
+
+// UNA ZONA ROTTA SI SCARTA, ma non porta giu' le altre della stessa catena
+const mista = { catena: 'X', zone: [
+  { nome: 'Buona', indirizzo: 'https://x/b', lat: 1, lon: 2, raggioKm: 50 },
+  { nome: 'Senza raggio', indirizzo: 'https://x/c', lat: 1, lon: 2 },
+  { nome: 'Senza indirizzo', lat: 1, lon: 2, raggioKm: 50 },
+]};
+assert.deepEqual(bersagli(mista).map((b) => b.zona.nome), ['Buona']);
+
+assert.equal(zonaValida({ nome: 'N', lat: 1, lon: 2, raggioKm: 0 }), null, 'raggio non positivo');
+assert.equal(zonaValida({ nome: '  ', lat: 1, lon: 2, raggioKm: 5 }), null, 'nome vuoto');
+assert.equal(zonaValida({ nome: 'N', lat: '1', lon: 2, raggioKm: 5 }), null, 'coordinate non numeriche');
+assert.equal(zonaValida(null), null);
+
+// Una catena le cui zone sono TUTTE rotte non si apre nemmeno nel sopralluogo
+assert.deepEqual(daAprire([{ catena: 'Y', zone: [{ nome: 'Z' }] }], { ancheLeSpente: true }), []);
 
 console.log('prova.mjs: tutto verde');
