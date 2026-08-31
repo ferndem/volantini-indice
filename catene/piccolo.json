@@ -1,8 +1,9 @@
 {
   "catena": "Supermercati Piccolo",
-  "indirizzo": "https://www.supermercatipiccolo.it/",
+  "indirizzo": "https://www.supermercatipiccolo.it/index.php/volantino",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "link diretto trovato dalla home"
 }

@@ -1,9 +1,9 @@
 {
   "catena": "Crai",
-  "indirizzo": "https://www.crai-supermercati.it/",
+  "indirizzo": "https://crai.it/negozi-e-volantini",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "il dominio ha il trattino"
+  "nota": "PER PUNTO VENDITA. crai-supermercati.it reindirizza a crai.it"
 }

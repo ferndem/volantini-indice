@@ -66,7 +66,12 @@ async function raccogliCatena(browser, adattatore) {
     const attributo = adattatore.attributoPagina ?? 'src';
     const pagine = await pagina.$$eval(
       adattatore.selettorePagina,
-      (nodi, attr) => nodi.map((n) => n.getAttribute(attr) ?? n.src ?? '').filter(Boolean),
+      (nodi, attr) => nodi.map((n) => {
+        if (attr !== 'sfondo') return n.getAttribute(attr) ?? n.src ?? '';
+        const sfondo = getComputedStyle(n).backgroundImage;
+        if (!sfondo || sfondo === 'none' || sfondo.includes('gradient')) return '';
+        return sfondo.slice(sfondo.indexOf('(') + 1, sfondo.lastIndexOf(')')).replace(/['"]/g, '');
+      }).filter(Boolean),
       attributo,
     );
 

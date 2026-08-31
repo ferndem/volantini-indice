@@ -1,8 +1,9 @@
 {
   "catena": "Famila",
-  "indirizzo": "https://www.famila.it/",
+  "indirizzo": "https://www.famila.it/digital-magazine",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "Il volantino e' un «magazine» su magazine.famila.it"
 }

@@ -58,6 +58,7 @@ export function separaValidita(testo) {
 }
 
 export function daAprire(adattatori, { ancheLeSpente }) {
-  if (ancheLeSpente) return adattatori;
-  return adattatori.filter((a) => a.attiva !== false);
+  const conIndirizzo = adattatori.filter((a) => typeof a.indirizzo === 'string' && a.indirizzo.startsWith('http'));
+  if (ancheLeSpente) return conIndirizzo;
+  return conIndirizzo.filter((a) => a.attiva !== false);
 }

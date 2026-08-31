@@ -1,9 +1,9 @@
 {
   "catena": "Lidl",
-  "indirizzo": "https://www.lidl.it/",
+  "indirizzo": "https://www.lidl.it/c/volantino-lidl/s10018048",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "dalla home: il percorso s10005610 non ha dato volantini"
+  "nota": "Esiste anche un visore diretto con le date nello slug: /l/it/volantini/offerte-valide-dal-27-08-al-2-09-volantino-settimanale-KA/view/flyer/page/N"
 }

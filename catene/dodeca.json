@@ -4,5 +4,6 @@
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "Il sopralluogo NON ha trovato nessun link al volantino: solo banner slider 1100x330. Da riguardare a mano"
 }

@@ -1,9 +1,8 @@
 {
   "catena": "Coop",
-  "indirizzo": "https://www.e-coop.it/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "vale anche per Ipercoop"
+  "nota": "BLOCCATA: e-coop.it reindirizza a coop.it che risponde 403 Forbidden al runner. Protezione anti-bot, non un errore nostro"
 }

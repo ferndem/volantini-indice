@@ -5,5 +5,5 @@
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "il dominio md-italia.com NON esiste: e' mdspa.it"
+  "nota": "ATTENZIONE: le pagine del volantino sono SFONDI CSS (SLIDESHOW-Promo-18-*.jpg), non tag <img>. La validita' c'e' gia': «dal 25 Agosto al 6 Settembre 2026» in .elementor-heading-title"
 }

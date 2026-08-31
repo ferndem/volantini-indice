@@ -1,8 +1,9 @@
 {
   "catena": "iN's Mercato",
-  "indirizzo": "https://www.insmercato.it/",
+  "indirizzo": "https://www.insmercato.it/sfoglia-il-nuovo-volantino/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "Anche /volantino/ e insmercato-cdn.it/insmercato/volantino/"
 }

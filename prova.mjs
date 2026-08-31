@@ -36,9 +36,9 @@ assert.equal(voceValida(null), false);
 // Il sopralluogo serve ESATTAMENTE sulle catene non ancora accese: se
 // rispettasse `attiva` non aprirebbe mai niente, ed e' il difetto che il
 // 2026-08-31 ha fatto girare la Action a vuoto senza stampare una riga.
-const spenta = { catena: 'MD', attiva: false };
-const accesa = { catena: 'Lidl', attiva: true };
-const senzaFlag = { catena: 'Eurospin' };
+const spenta = { catena: 'MD', indirizzo: 'https://esempio/md', attiva: false };
+const accesa = { catena: 'Lidl', indirizzo: 'https://esempio/lidl', attiva: true };
+const senzaFlag = { catena: 'Eurospin', indirizzo: 'https://esempio/eurospin' };
 
 assert.deepEqual(
   daAprire([spenta, accesa, senzaFlag], { ancheLeSpente: true }),
@@ -51,5 +51,20 @@ assert.deepEqual(
   'la raccolta vera salta le spente; senza flag vale accesa',
 );
 assert.deepEqual(daAprire([], { ancheLeSpente: true }), [], 'cartella vuota');
+
+// Una catena senza indirizzo e' una che il sopralluogo non ha ancora
+// localizzato — Coop bloccata da 403, Sigma e Sisa da ritrovare, Sole 365
+// senza volantino. Aprirle significherebbe passare `undefined` a page.goto.
+const senzaIndirizzo = { catena: 'Coop', attiva: false };
+assert.deepEqual(
+  daAprire([senzaIndirizzo, spenta, accesa], { ancheLeSpente: true }),
+  [spenta, accesa],
+  'una catena senza indirizzo non si apre nemmeno nel sopralluogo',
+);
+assert.deepEqual(
+  daAprire([{ catena: 'X', indirizzo: 'non-un-url', attiva: true }], { ancheLeSpente: true }),
+  [],
+  'un indirizzo che non e\' un URL vale come assente',
+);
 
 console.log('prova.mjs: tutto verde');

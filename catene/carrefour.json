@@ -1,9 +1,9 @@
 {
   "catena": "Carrefour Market",
-  "indirizzo": "https://www.carrefour.it/",
+  "indirizzo": "https://www.carrefour.it/volantino",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "vale anche per Carrefour Express"
+  "nota": "PER PUNTO VENDITA: /volantino/<negozio>/<id>/<nome-volantino>/<id>. Serve un secondo salto"
 }

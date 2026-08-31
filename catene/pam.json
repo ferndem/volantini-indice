@@ -1,8 +1,9 @@
 {
   "catena": "Pam",
-  "indirizzo": "https://www.pam.it/",
+  "indirizzo": "https://www.pampanorama.it/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "DOMINIO SBAGLIATO PRIMA: pam.it e' un'azienda di STAMPA DIGITALE, non il supermercato"
 }

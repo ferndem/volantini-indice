@@ -1,8 +1,9 @@
 {
   "catena": "Eurospin",
-  "indirizzo": "https://www.eurospin.it/volantini/",
+  "indirizzo": "https://www.eurospin.it/volantino/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "SINGOLARE: /volantini/ risponde «Pagina non trovata»"
 }

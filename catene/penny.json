@@ -1,8 +1,9 @@
 {
   "catena": "Penny",
-  "indirizzo": "https://www.pennymarket.it/",
+  "indirizzo": "https://www.penny.it/sfoglia-il-volantino-mobile",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "pennymarket.it reindirizza a penny.it"
 }

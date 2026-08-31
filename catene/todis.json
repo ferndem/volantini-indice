@@ -1,8 +1,9 @@
 {
   "catena": "Todis",
-  "indirizzo": "https://www.todis.it/",
+  "indirizzo": "https://www.todis.it/negozi-e-volantini/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false
+  "attiva": false,
+  "nota": "Per punto vendita, e ce ne sono di campani: /volantini/todis-baia-domizia/, /volantini/volantino-todis-sessa-aurunca/"
 }

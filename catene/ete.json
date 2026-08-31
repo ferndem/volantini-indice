@@ -1,9 +1,9 @@
 {
   "catena": "Etè",
-  "indirizzo": "https://etesupermercati.it/",
+  "indirizzo": "https://etesupermercati.it/volantino/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "il dominio e' senza www e senza 'gruppo'"
+  "nota": "link diretto trovato dalla home"
 }

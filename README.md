@@ -90,6 +90,12 @@ selettori vanno tarati sul sito vero prima di accenderle.
 `selettorePagina: null` significa «non ancora saputo»: la catena esiste
 nell'elenco, il sopralluogo la apre, la raccolta vera la salta.
 
+**Senza `indirizzo` non si apre nemmeno nel sopralluogo.** È lo stato di una
+catena che il sopralluogo non ha ancora localizzato, e la `nota` dice perché.
+
+`attributoPagina: "sfondo"` legge l'immagine dal **CSS** invece che dall'`src`:
+serve dove le pagine del volantino sono `background-image`, come su MD.
+
 **Sono 21 adattatori per 27 insegne**, perché alcune condividono il sito: Conad
 con Conad City e Spazio Conad, Carrefour Market con Express, Coop con Ipercoop,
 Despar con Eurospar e Interspar.

@@ -1,9 +1,9 @@
 {
   "catena": "Decò",
-  "indirizzo": "https://supermercatideco.multicedi.it/web/volantini.aspx",
+  "indirizzo": "https://supermercatideco.multicedi.it/static/volantino/volantino-528-0-4.aspx",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "insegna Multicedi, Campania. Il volantino passa da un visore Joomag di terze parti"
+  "nota": "Pagina per formato trovata dal sopralluogo: /static/volantino/, non /web/volantino/. Gli altri formati sono 533-0-5 Maxistore, 534-0-6 Market, 532-0-7 Superfreddo, 531-0-11 Superstore. Usa anche deco.volantinopiu.com"
 }

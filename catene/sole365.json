@@ -1,9 +1,8 @@
 {
   "catena": "Sole 365",
-  "indirizzo": "https://www.sole365.it/",
   "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "every day low price: potrebbe non avere un volantino promozionale. Il sopralluogo lo dira'"
+  "nota": "DISATTIVATA CON PROVA: il sopralluogo non ha trovato nessun link a un volantino, solo Instagram. Conferma la politica «every day low price» — niente offerte temporanee, quindi niente da indicizzare"
 }
