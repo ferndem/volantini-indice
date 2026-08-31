@@ -12,6 +12,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: indice
@@ -53,3 +55,24 @@ jobs:
           git add indice.json
           git commit -m "indice: $(date -u +%F)"
           git push
+
+  pubblica:
+    needs: raccogli
+    if: ${{ !inputs.ispeziona }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: '.'
+
+      - id: deploy
+        uses: actions/deploy-pages@v5

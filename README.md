@@ -212,10 +212,17 @@ viewport — è saltata fuori in due minuti.
 Due volte al giorno (`cron: 17 5,17 * * *`) più l'avvio a mano. Il commit
 avviene **solo se `indice.json` è cambiato**, per non fare rumore.
 
-**Pages pubblica dal ramo `main`**, non dalle Action: il commit dell'indice fa
-ripartire Pages da solo. Per questo il workflow non ha un job di deploy — ne
-aveva uno, ed era sia inutile sia rotto, perché `deploy-pages` pretende che la
-sorgente sia impostata su «GitHub Actions».
+**Pages pubblica dalle Action, non dal ramo**, e il job `pubblica` serve
+davvero. Qui c'era scritto il contrario, ed era falso: fra il 2026-08-31 alle
+11:57 e le 18:45 il ramo `main` ha ricevuto quattro commit e **Pages ha
+continuato a servire l'indice vuoto**, perché il job di deploy era stato tolto
+credendolo inutile. La prova sta nell'API pubblica delle Action: di
+`pages-build-deployment` non esiste **nessuna** esecuzione — quel workflow
+esiste solo quando la sorgente è un ramo.
+
+`pubblica` fa `checkout` con `ref: main` e non sul SHA che ha innescato il
+giro: l'`indice.json` da pubblicare è quello **appena committato** dal job
+prima, che a quel SHA non c'era ancora.
 
 ## Il prezzo, detto chiaro
 
