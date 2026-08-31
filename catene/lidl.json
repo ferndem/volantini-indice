@@ -1,9 +1,9 @@
 {
   "catena": "Lidl",
-  "indirizzo": "https://www.lidl.it/c/volantini/s10005610",
-  "selettorePagina": "img",
+  "indirizzo": "https://www.lidl.it/",
+  "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "Selettori da tarare col sopralluogo."
+  "nota": "dalla home: il percorso s10005610 non ha dato volantini"
 }

@@ -87,14 +87,39 @@ la parte che decide qualcosa dev'essere provabile senza accendere niente.
 `attiva: false` la esclude senza cancellarla. **Tutte nascono così**: i
 selettori vanno tarati sul sito vero prima di accenderle.
 
+`selettorePagina: null` significa «non ancora saputo»: la catena esiste
+nell'elenco, il sopralluogo la apre, la raccolta vera la salta.
+
+**Sono 21 adattatori per 27 insegne**, perché alcune condividono il sito: Conad
+con Conad City e Spazio Conad, Carrefour Market con Express, Coop con Ipercoop,
+Despar con Eurospar e Interspar.
+
 Quando una catena rifà il sito, si cambia una riga qui — non una funzione.
 
 ## Il sopralluogo
 
 I selettori non si indovinano. Si esegue la Action a mano con
-**`ispeziona = true`**: apre ogni catena e stampa cosa trova — immagini, iframe,
-testi che contengono «dal … al …» — **senza scrivere `indice.json`**. Da lì si
-scrivono i selettori, si mette `attiva: true`, e si esegue normalmente.
+**`ispeziona = true`**: apre ogni catena e stampa cosa trova, **senza scrivere
+`indice.json`**. Da lì si scrivono i selettori, si mette `attiva: true`, e si
+esegue normalmente.
+
+Il sopralluogo **accetta il banner dei cookie** (OneTrust, Didomi e simili),
+**scorre tutta la pagina** per far caricare le immagini pigre, aspetta la rete
+ferma, e poi riporta:
+
+| Campo | A cosa serve |
+|---|---|
+| `urlFinale`, `titolo` | dove si è arrivati davvero, dopo i redirect |
+| `immaginiGrandi` | solo quelle da ≥400px per lato, ordinate per area, **con le loro dimensioni e classi**: una pagina di volantino è grande, un logo no |
+| `sfondiGrandi` | immagini messe via CSS, che nessun `<img>` mostrerebbe |
+| `linkVolantino` | i link che parlano di volantini: **è così che si trova la pagina vera partendo dalla home** |
+| `iframe`, `canvas` | i visori di terze parti, che sono il caso difficile |
+| `testiConDate` | i «dal … al …» da cui si ricava la validità |
+
+La prima versione guardava solo gli `<img>` già caricati, e su Lidl ed Eurospin
+ha riportato **soltanto loghi e icone del footer**: il contenuto arrivava dopo
+il consenso e dopo lo scorrimento. Guardare poco e concludere «non c'è niente»
+è lo stesso errore di un test che passa a vuoto.
 
 **Il sopralluogo ignora `attiva`, ed è il punto.** Serve esattamente sulle
 catene ancora spente: se rispettasse quel flag non aprirebbe mai niente. Il

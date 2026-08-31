@@ -1,9 +1,9 @@
 {
   "catena": "MD",
-  "indirizzo": "https://www.md-italia.com/volantini/",
-  "selettorePagina": "img",
+  "indirizzo": "https://www.mdspa.it/volantino/",
+  "selettorePagina": null,
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "Selettori da tarare col sopralluogo: eseguire il workflow con ispeziona=true e leggerne l'uscita. Finche' attiva e' false la catena non viene aperta."
+  "nota": "il dominio md-italia.com NON esiste: e' mdspa.it"
 }
