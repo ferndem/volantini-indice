@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, percheNonValida, separaValidita, voceValida, zonaValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -85,21 +85,92 @@ assert.equal(paginaNumerata('https://x/pagine/1', 2), null, 'senza estensione: n
 assert.equal(paginaNumerata('', 2), null);
 
 // Su volantinopiu il numero nell'indirizzo DA' la cartella delle pagine:
-// volantino2852200.html -> /flyer/2/8/5/2/2/pagine/1.jpg. Sono le PRIME CINQUE
+// Il numero del volantino arriva da DUE forme: il link alla pagina, e la
+// copertina. Deco' pubblica entrambe, Pro7 SOLO la copertina — e per questo
+// il 2026-08-31 non produceva una riga.
+assert.deepEqual(
+  numeriVolantinoPiu(['https://deco.volantinopiu.com/volantino2852200.html']),
+  ['2852200'],
+);
+assert.deepEqual(
+  numeriVolantinoPiu(['https://resources.volantinopiu.it/flyer/2/8/4/2/2/pagine/1.jpg']),
+  ['2842200'],
+  'dalla copertina: le cinque cifre della cartella piu\' il suffisso 00',
+);
+assert.deepEqual(
+  numeriVolantinoPiu([
+    'https://deco.volantinopiu.com/volantino2852200.html',
+    'https://resources.volantinopiu.it/flyer/2/8/5/2/2/pagine/1.jpg',
+  ]),
+  ['2852200'],
+  'link e copertina dello stesso volantino danno UN numero solo',
+);
+assert.deepEqual(
+  numeriVolantinoPiu(['https://pro7.it/chi-siamo', 'https://x/logo.png', null, 42]),
+  [],
+  'quello che non e\' un volantino non diventa un numero',
+);
+assert.deepEqual(
+  numeriVolantinoPiu(['https://x/volantino2852200.html?utm=1', 'https://x/volantino2852300.html#p2']),
+  ['2852200', '2852300'],
+  'query e frammento non impediscono il riconoscimento',
+);
+
+// volantino2852200 -> /flyer/2/8/5/2/2/pagine/1.jpg. Sono le PRIME CINQUE
 // cifre, non tutte: le ultime due sono un suffisso.
 assert.equal(
-  copertinaVolantinoPiu('https://deco.volantinopiu.com/volantino2852200.html'),
+  copertinaVolantinoPiu('2852200'),
   'https://resources.volantinopiu.it/flyer/2/8/5/2/2/pagine/1.jpg',
 );
-assert.equal(
-  copertinaVolantinoPiu('https://pro7.volantinopiu.com/classica/volantino2842200.html'),
-  'https://resources.volantinopiu.it/flyer/2/8/4/2/2/pagine/1.jpg',
-  'vale anche col segmento /classica/ in mezzo',
-);
-assert.equal(copertinaVolantinoPiu('https://x/volantino2852200.htm'), 'https://resources.volantinopiu.it/flyer/2/8/5/2/2/pagine/1.jpg');
-assert.equal(copertinaVolantinoPiu('https://deco.volantinopiu.com/'), null, 'l\'indice non e\' un volantino');
-assert.equal(copertinaVolantinoPiu('https://x/volantino12.html'), null, 'numero troppo corto: non si indovina');
+assert.equal(copertinaVolantinoPiu('12'), null, 'numero troppo corto: non si indovina');
 assert.equal(copertinaVolantinoPiu(''), null);
+assert.equal(copertinaVolantinoPiu(null), null);
+
+// Pro7 elenca i volantini su pro7.it ma li SERVE su pro7.volantinopiu.com:
+// l'origine della pagina del volantino non e' quella dell'indice.
+assert.equal(
+  paginaVolantinoPiu('https://pro7.volantinopiu.com', '2842200'),
+  'https://pro7.volantinopiu.com/volantino2842200.html',
+);
+assert.equal(
+  paginaVolantinoPiu('https://deco.volantinopiu.com/', '2852200'),
+  'https://deco.volantinopiu.com/volantino2852200.html',
+  'la barra finale non si raddoppia',
+);
+assert.equal(paginaVolantinoPiu('pro7.volantinopiu.com', '2842200'), null, 'origine senza schema');
+assert.equal(paginaVolantinoPiu('https://x', 'abc'), null);
+
+// LA TRAPPOLA DEL 2026-08-31: la data sta in un offcanvas che il browser, a
+// viewport 1440, NON monta. L'HTML servito ce l'ha sempre: si legge quello.
+const offcanvasVero = `<div class="offcanvas-header">
+  <a data-bs-dismiss="offcanvas" aria-label="Close"><img src="close.webp" alt=""></a>
+  <span class="fw-semibold pt-1"> Dal 01/09/2026 al 10/09/2026 </span>
+</div>`;
+assert.equal(validitaDaHtml(offcanvasVero), 'Dal 01/09/2026 al 10/09/2026');
+assert.deepEqual(separaValidita(validitaDaHtml(offcanvasVero)), ['2026-09-01', '2026-09-10']);
+
+// Uno <script> che parla di date NON deve diventare la validita' del volantino
+assert.equal(
+  validitaDaHtml('<script>var t = "dal 01/01/2000 al 02/01/2000";</script><p>Dal 27/08/2026 al 04/09/2026</p>'),
+  'Dal 27/08/2026 al 04/09/2026',
+  'lo script si toglie PRIMA di cercare, o vince la data sbagliata',
+);
+assert.equal(
+  validitaDaHtml('<style>/* dal 01/01/2000 al 02/01/2000 */</style><p>Dal 27/08/2026 al 04/09/2026</p>'),
+  'Dal 27/08/2026 al 04/09/2026',
+);
+
+// Pro7 scrive la validita' a parole, Deco' in cifre: la stessa lettura serve entrambe
+assert.deepEqual(
+  separaValidita(validitaDaHtml('<p>Offerte valide dal 27 agosto al 4 settembre 2026</p>')),
+  ['2026-08-27', '2026-09-04'],
+);
+assert.equal(validitaDaHtml('<p>Nessuna data qui</p>'), null);
+assert.equal(validitaDaHtml(''), null);
+assert.equal(validitaDaHtml(null), null);
+
+// Il testo si legge attraverso i tag: «Dal» e la data non sono nello stesso nodo
+assert.equal(testoLeggibile('<span>Dal</span>&nbsp;<b>01/09/2026</b> al 10/09/2026'), 'Dal 01/09/2026 al 10/09/2026');
 
 // Una catena che pubblica per zona ha un indirizzo PER ZONA: Todis serve
 // /volantini-lazio/, -puglia/, -sicilia/... Ogni zona diventa una voce sua.

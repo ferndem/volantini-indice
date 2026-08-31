@@ -126,10 +126,24 @@ Carrefour l'elenco che il runner vede dipende da dove sta il runner, quindi la
 zona va **fissata**, non lasciata alla geolocalizzazione del runner.
 
 `piattaforma: "volantinopiu"` gestisce le catene servite da *volantinopiu*
-(Decò, Pro7): apre l'indice, segue ogni `volantinoNNNNNNN.html`, ne legge la
-validità e **deriva le pagine dalle prime cinque cifre del numero**. Produce
-**una voce per volantino**, non una per catena: Decò ne ha 14 attivi insieme,
-con date diverse, e fonderli in una voce sola direbbe il falso.
+(Decò, Pro7). Produce **una voce per volantino**, non una per catena: Decò ne ha
+14 attivi insieme, con date diverse, e fonderli in una voce sola direbbe il
+falso.
+
+Il numero del volantino si ricava da **due forme**, perché le due catene ne
+pubblicano una ciascuna: il link `volantinoNNNNNNN.html` (Decò) e la
+**copertina** `…/flyer/2/8/4/2/2/pagine/1.jpg` (Pro7, che i link non li mette).
+Dalla cartella della copertina si risale al numero — cinque cifre più `00`.
+
+**La validità si legge dall'HTML servito, non dal DOM**, e ci è costato una
+giornata: la data sta in un `offcanvas` Bootstrap che il browser, a viewport
+larga, **non monta**. A 1440px di larghezza `document.body.textContent` non la
+contiene; a 1280 sì. Un `fetch` la trova sempre, non richiede il browser ed è
+molto più veloce — quindi la pagina del volantino **non si apre affatto**: si
+scarica. Il browser serve solo per l'indice, dove Pro7 inietta i link via JS.
+
+`origineVolantini` esiste per Pro7: elenca su `pro7.it` ma i volantini li serve
+`pro7.volantinopiu.com`. Se manca, l'origine è quella dell'indice.
 
 `enumeraPagine: true` risale dalle **copertine** alle pagine interne. Le
 piattaforme tipo `volantinopiu` servono la copertina come `…/pagine/1.jpg` e le
@@ -163,6 +177,11 @@ ferma, e poi riporta:
 | `iframe`, `canvas` | i visori di terze parti, che sono il caso difficile |
 | `testiConDate` | i «dal … al …» da cui si ricava la validità |
 
+Il sopralluogo accetta il banner anche **per testo del bottone**
+(`/accetta (tutti|tutto|e chiudi)/i`), non solo per `id` o `aria-label`: su Pro7
+il banner non ha nessuno dei due, e senza il consenso la pagina non elenca
+niente.
+
 La prima versione guardava solo gli `<img>` già caricati, e su Lidl ed Eurospin
 ha riportato **soltanto loghi e icone del footer**: il contenuto arrivava dopo
 il consenso e dopo lo scorrimento. Guardare poco e concludere «non c'è niente»
@@ -173,6 +192,20 @@ catene ancora spente: se rispettasse quel flag non aprirebbe mai niente. Il
 primo giro del 2026-08-31 è finito a vuoto per questo — la Action è passata
 verde senza stampare una riga. Ora `daAprire()` sta nel nucleo e ha la sua
 prova.
+
+## Provarlo in locale, che è il punto
+
+```
+npm install && npx playwright install chromium
+node prova.mjs      # il nucleo, senza rete
+node raccogli.mjs   # la raccolta vera: ~70 secondi
+```
+
+**Questo è il rimedio a un errore vero.** Il 2026-08-31 si sono spesi tre giri
+di CI a indovinare perché Decò scartasse 14 voci su 14, dicendo all'utente
+«rilancia» dopo aver verificato la logica su una stringa scritta a mano invece
+che sulla pagina vera. Con la raccolta eseguibile in locale la causa — il
+viewport — è saltata fuori in due minuti.
 
 ## Ritmo, e come arriva su Pages
 

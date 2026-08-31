@@ -114,9 +114,46 @@ export function paginaNumerata(copertina, numero) {
 
 export const RISORSE_VOLANTINOPIU = 'https://resources.volantinopiu.it/flyer';
 
-export function copertinaVolantinoPiu(indirizzoVolantino) {
-  const numero = indirizzoVolantino.match(/volantino(\d{5,})\.html?$/i)?.[1];
-  if (!numero) return null;
-  const cartella = numero.slice(0, 5).split('').join('/');
+const CIFRE_DELLA_CARTELLA = 5;
+
+export function numeriVolantinoPiu(indirizzi) {
+  const numeri = new Set();
+  for (const indirizzo of indirizzi) {
+    if (typeof indirizzo !== 'string') continue;
+    const daPagina = indirizzo.match(/volantino(\d{5,})\.html?(?:[?#].*)?$/i)?.[1];
+    if (daPagina) {
+      numeri.add(daPagina);
+      continue;
+    }
+    const daCopertina = indirizzo.match(/\/flyer\/((?:\d\/){4}\d)\/pagine\//)?.[1];
+    if (daCopertina) numeri.add(`${daCopertina.replaceAll('/', '')}00`);
+  }
+  return [...numeri].sort();
+}
+
+export function copertinaVolantinoPiu(numero) {
+  if (!/^\d{5,}$/.test(numero ?? '')) return null;
+  const cartella = numero.slice(0, CIFRE_DELLA_CARTELLA).split('').join('/');
   return `${RISORSE_VOLANTINOPIU}/${cartella}/pagine/1.jpg`;
+}
+
+export function paginaVolantinoPiu(origine, numero) {
+  if (!origine?.startsWith('http') || !/^\d{5,}$/.test(numero ?? '')) return null;
+  return `${origine.replace(/\/+$/, '')}/volantino${numero}.html`;
+}
+
+const VALIDITA = /\bdal\s+\d{1,2}(?:[/.]\d{1,2}[/.]\d{2,4}|\s+[a-z\u00e0\u00e8\u00e9\u00ec\u00f2\u00f9]+)(?:\s+\d{4})?\s+al\s+\d{1,2}(?:[/.]\d{1,2}[/.]\d{2,4}|\s+[a-z\u00e0\u00e8\u00e9\u00ec\u00f2\u00f9]+)(?:\s+\d{4})?/i;
+
+export function testoLeggibile(html) {
+  if (typeof html !== 'string') return '';
+  return html
+    .replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function validitaDaHtml(html) {
+  return testoLeggibile(html).match(VALIDITA)?.[0] ?? null;
 }

@@ -1,13 +1,14 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { bersagli, copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, percheNonValida, separaValidita, voceValida } from './nucleo.mjs';
+import { bersagli, copertinaVolantinoPiu, daAprire, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, validitaDaHtml, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
 const ATTESA_PAGINA = 30_000;
 const TETTO_PAGINE = 80;
 const TETTO_VOLANTINI = 20;
+const AGENTE = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) granrisparmiofm-indice';
 
 async function adattatori({ ancheLeSpente }) {
   const nomi = (await readdir(CARTELLA_CATENE)).filter((n) => n.endsWith('.json'));
@@ -25,11 +26,10 @@ const BOTTONI_CONSENSO = [
   'button[aria-label*="accetta" i]',
 ];
 
+const TESTO_CONSENSO = /accetta (tutti|tutto|e chiudi)/i;
+
 async function apri(browser, indirizzo) {
-  const pagina = await browser.newPage({
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) granrisparmiofm-indice',
-    viewport: { width: 1440, height: 2200 },
-  });
+  const pagina = await browser.newPage({ userAgent: AGENTE, viewport: { width: 1280, height: 2200 } });
   await pagina.goto(indirizzo, { waitUntil: 'domcontentloaded', timeout: ATTESA_PAGINA });
   await accettaConsenso(pagina);
   await scorriTutto(pagina);
@@ -44,7 +44,23 @@ async function accettaConsenso(pagina) {
     await pagina.waitForTimeout(1_000);
     return selettore;
   }
+  const perTesto = pagina.getByRole('button', { name: TESTO_CONSENSO }).first();
+  if (await perTesto.count().catch(() => 0)) {
+    await perTesto.click({ timeout: 3_000 }).catch(() => {});
+    await pagina.waitForTimeout(1_000);
+    return 'testo del bottone';
+  }
   return null;
+}
+
+async function scarica(indirizzo) {
+  const risposta = await fetch(indirizzo, { headers: { 'user-agent': AGENTE } }).catch(() => null);
+  return risposta?.ok ? risposta.text() : null;
+}
+
+async function esiste(indirizzo) {
+  const risposta = await fetch(indirizzo, { method: 'HEAD', headers: { 'user-agent': AGENTE } }).catch(() => null);
+  return Boolean(risposta?.ok);
 }
 
 async function scorriTutto(pagina) {
@@ -60,39 +76,36 @@ async function scorriTutto(pagina) {
 
 async function raccogliVolantinoPiu(browser, adattatore, bersaglio) {
   const indice = await apri(browser, bersaglio.indirizzo);
-  let indirizzi;
+  let candidati;
   try {
-    indirizzi = await indice.$$eval(
-      'a[href*="volantino"]',
-      (nodi) => [...new Set(nodi.map((n) => n.href).filter((h) => /volantino\d{5,}\.html?$/i.test(h)))],
-    );
+    candidati = await indice.evaluate(() => [
+      ...[...document.querySelectorAll('a[href]')].map((a) => a.href),
+      ...[...document.querySelectorAll('img')].map((i) => i.currentSrc || i.src),
+    ]);
   } finally {
     await indice.close();
   }
 
+  const origine = adattatore.origineVolantini ?? new URL(bersaglio.indirizzo).origin;
+  const numeri = numeriVolantinoPiu(candidati).slice(0, TETTO_VOLANTINI);
+  if (numeri.length === 0) console.log(`  nessun volantino elencato su ${bersaglio.indirizzo}`);
+
   const voci = [];
-  for (const indirizzo of indirizzi.slice(0, TETTO_VOLANTINI)) {
-    const copertina = copertinaVolantinoPiu(indirizzo);
-    if (!copertina) continue;
-    const singolo = await apri(browser, indirizzo);
-    try {
-      const testo = await singolo.evaluate(() => document.body.textContent ?? '');
-      const trovata = testo.match(/[Dd]al\s+[\d/.]+\s+al\s+[\d/.]+/)?.[0] ?? null;
-      if (!trovata) {
-        console.log(`  nessuna data in ${indirizzo} — ${testo.replace(/\s+/g, ' ').trim().slice(0, 160)}`);
-      }
-      const [dal, al] = separaValidita(trovata);
-      const pagine = await enumeraDaCopertine(singolo, [copertina]);
-      voci.push({
-        catena: adattatore.catena,
-        validoDal: dal, validoAl: al,
-        fonte: indirizzo,
-        pagine,
-        zona: bersaglio.zona ?? undefined,
-      });
-    } finally {
-      await singolo.close();
-    }
+  for (const numero of numeri) {
+    const fonte = paginaVolantinoPiu(origine, numero);
+    const html = await scarica(fonte);
+    if (html === null) console.log(`  ${fonte} non risponde`);
+    const trovata = validitaDaHtml(html ?? '');
+    if (html !== null && !trovata) console.log(`  nessuna data in ${fonte}`);
+    const [dal, al] = separaValidita(trovata);
+    voci.push({
+      catena: adattatore.catena,
+      validoDal: dal,
+      validoAl: al,
+      fonte,
+      pagine: await enumeraDaCopertine([copertinaVolantinoPiu(numero)]),
+      zona: bersaglio.zona ?? undefined,
+    });
   }
   return voci;
 }
@@ -128,7 +141,7 @@ async function raccogliCatena(browser, adattatore, bersaglio) {
       validoDal: dal ?? adattatore.validoDal ?? null,
       validoAl: al ?? adattatore.validoAl ?? null,
       fonte: bersaglio.indirizzo,
-      pagine: adattatore.enumeraPagine ? await enumeraDaCopertine(pagina, assolute) : assolute,
+      pagine: adattatore.enumeraPagine ? await enumeraDaCopertine(assolute) : assolute,
       zona: bersaglio.zona ?? undefined,
     };
   } finally {
@@ -136,15 +149,13 @@ async function raccogliCatena(browser, adattatore, bersaglio) {
   }
 }
 
-async function enumeraDaCopertine(pagina, copertine) {
+async function enumeraDaCopertine(copertine) {
   const tutte = [];
-  for (const copertina of copertine) {
+  for (const copertina of copertine.filter(Boolean)) {
     tutte.push(copertina);
     for (let numero = 2; numero <= TETTO_PAGINE; numero += 1) {
       const successiva = paginaNumerata(copertina, numero);
-      if (!successiva) break;
-      const risposta = await pagina.request.head(successiva).catch(() => null);
-      if (!risposta?.ok()) break;
+      if (!successiva || !(await esiste(successiva))) break;
       tutte.push(successiva);
     }
   }

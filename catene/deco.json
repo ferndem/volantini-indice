@@ -3,5 +3,5 @@
   "indirizzo": "https://deco.volantinopiu.com/",
   "piattaforma": "volantinopiu",
   "attiva": true,
-  "nota": "14 volantini concorrenti con date diverse: produce UNA VOCE PER VOLANTINO. La validita' sta dentro il singolo volantinoNNNNNNN.html («Dal 01/09/2026 al 10/09/2026»), le pagine si derivano dalle prime 5 cifre del numero"
+  "nota": "14 volantini concorrenti con date diverse: produce UNA VOCE PER VOLANTINO. La validita' si legge dall'HTML SERVITO della pagina del volantino, non dal DOM: il browser a viewport larga non monta l'offcanvas che la contiene"
 }

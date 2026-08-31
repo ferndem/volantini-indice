@@ -2,6 +2,7 @@
   "catena": "Pro7",
   "indirizzo": "https://pro7.it/volantini",
   "piattaforma": "volantinopiu",
+  "origineVolantini": "https://pro7.volantinopiu.com",
   "attiva": true,
-  "nota": "NON usare pro7.volantinopiu.com: e' la landing generica della piattaforma e non elenca niente. I link ai volantini stanno su pro7.it/volantini, INIETTATI VIA JS — curl non li vede, il browser si'"
+  "nota": "L'elenco sta su pro7.it, dietro il banner cookie e iniettato via JS: serve il browser, e il consenso si accetta PER TESTO del bottone. Pro7 non pubblica i link volantinoNNNNNNN.html, solo le COPERTINE: il numero si ricava da quelle. I volantini pero' sono serviti da pro7.volantinopiu.com, non da pro7.it — da qui origineVolantini"
 }
