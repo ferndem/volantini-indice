@@ -1,10 +1,7 @@
 {
   "catena": "Pro7",
-  "indirizzo": "https://pro7.it/volantini",
-  "selettorePagina": "img[src*='resources.volantinopiu.it']",
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "enumeraPagine": true,
+  "indirizzo": "https://pro7.volantinopiu.com/",
+  "piattaforma": "volantinopiu",
   "attiva": true,
-  "nota": "Le copertine stanno su resources.volantinopiu.it/flyer/<cifre>/pagine/1.jpg; enumeraPagine risale alle altre. Le due validita' sono in pagina ma senza classe propria: si tarano dopo"
+  "nota": "Stessa piattaforma di Deco'. Spostata da pro7.it/volantini all'indice della piattaforma, che elenca tutti i volantini con la loro validita'"
 }

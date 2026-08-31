@@ -1,9 +1,7 @@
 {
   "catena": "Decò",
-  "indirizzo": "https://supermercatideco.multicedi.it/static/volantino/volantino-528-0-4.aspx",
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "attiva": false,
-  "nota": "Pagina per formato trovata dal sopralluogo: /static/volantino/, non /web/volantino/. Gli altri formati sono 533-0-5 Maxistore, 534-0-6 Market, 532-0-7 Superfreddo, 531-0-11 Superstore. Usa anche deco.volantinopiu.com"
+  "indirizzo": "https://deco.volantinopiu.com/",
+  "piattaforma": "volantinopiu",
+  "attiva": true,
+  "nota": "14 volantini concorrenti con date diverse: produce UNA VOCE PER VOLANTINO. La validita' sta dentro il singolo volantinoNNNNNNN.html («Dal 01/09/2026 al 10/09/2026»), le pagine si derivano dalle prime 5 cifre del numero"
 }

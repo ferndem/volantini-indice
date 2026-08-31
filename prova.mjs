@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
+import { copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -83,5 +83,22 @@ assert.equal(
 assert.equal(paginaNumerata('https://x/cover.jpg', 2), null, 'ultimo segmento non numerico: non si enumera');
 assert.equal(paginaNumerata('https://x/pagine/1', 2), null, 'senza estensione: non si enumera');
 assert.equal(paginaNumerata('', 2), null);
+
+// Su volantinopiu il numero nell'indirizzo DA' la cartella delle pagine:
+// volantino2852200.html -> /flyer/2/8/5/2/2/pagine/1.jpg. Sono le PRIME CINQUE
+// cifre, non tutte: le ultime due sono un suffisso.
+assert.equal(
+  copertinaVolantinoPiu('https://deco.volantinopiu.com/volantino2852200.html'),
+  'https://resources.volantinopiu.it/flyer/2/8/5/2/2/pagine/1.jpg',
+);
+assert.equal(
+  copertinaVolantinoPiu('https://pro7.volantinopiu.com/classica/volantino2842200.html'),
+  'https://resources.volantinopiu.it/flyer/2/8/4/2/2/pagine/1.jpg',
+  'vale anche col segmento /classica/ in mezzo',
+);
+assert.equal(copertinaVolantinoPiu('https://x/volantino2852200.htm'), 'https://resources.volantinopiu.it/flyer/2/8/5/2/2/pagine/1.jpg');
+assert.equal(copertinaVolantinoPiu('https://deco.volantinopiu.com/'), null, 'l\'indice non e\' un volantino');
+assert.equal(copertinaVolantinoPiu('https://x/volantino12.html'), null, 'numero troppo corto: non si indovina');
+assert.equal(copertinaVolantinoPiu(''), null);
 
 console.log('prova.mjs: tutto verde');

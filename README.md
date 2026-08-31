@@ -96,6 +96,12 @@ catena che il sopralluogo non ha ancora localizzato, e la `nota` dice perché.
 `attributoPagina: "sfondo"` legge l'immagine dal **CSS** invece che dall'`src`:
 serve dove le pagine del volantino sono `background-image`, come su MD.
 
+`piattaforma: "volantinopiu"` gestisce le catene servite da *volantinopiu*
+(Decò, Pro7): apre l'indice, segue ogni `volantinoNNNNNNN.html`, ne legge la
+validità e **deriva le pagine dalle prime cinque cifre del numero**. Produce
+**una voce per volantino**, non una per catena: Decò ne ha 14 attivi insieme,
+con date diverse, e fonderli in una voce sola direbbe il falso.
+
 `enumeraPagine: true` risale dalle **copertine** alle pagine interne. Le
 piattaforme tipo `volantinopiu` servono la copertina come `…/pagine/1.jpg` e le
 altre cambiando solo quel numero: si sonda `2, 3, …` con una `HEAD` finché una

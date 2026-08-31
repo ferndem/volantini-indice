@@ -1,12 +1,13 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
+import { copertinaVolantinoPiu, daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
 const ATTESA_PAGINA = 30_000;
 const TETTO_PAGINE = 80;
+const TETTO_VOLANTINI = 20;
 
 async function adattatori({ ancheLeSpente }) {
   const nomi = (await readdir(CARTELLA_CATENE)).filter((n) => n.endsWith('.json'));
@@ -55,6 +56,40 @@ async function scorriTutto(pagina) {
     window.scrollTo(0, 0);
   }).catch(() => {});
   await pagina.waitForLoadState('networkidle', { timeout: 12_000 }).catch(() => {});
+}
+
+async function raccogliVolantinoPiu(browser, adattatore) {
+  const indice = await apri(browser, adattatore.indirizzo);
+  let indirizzi;
+  try {
+    indirizzi = await indice.$$eval(
+      'a[href*="volantino"]',
+      (nodi) => [...new Set(nodi.map((n) => n.href).filter((h) => /volantino\d{5,}\.html?$/i.test(h)))],
+    );
+  } finally {
+    await indice.close();
+  }
+
+  const voci = [];
+  for (const indirizzo of indirizzi.slice(0, TETTO_VOLANTINI)) {
+    const copertina = copertinaVolantinoPiu(indirizzo);
+    if (!copertina) continue;
+    const singolo = await apri(browser, indirizzo);
+    try {
+      const testo = await singolo.evaluate(() => document.body.innerText);
+      const [dal, al] = separaValidita(testo.match(/[Dd]al\s+[\d/.]+\s+al\s+[\d/.]+/)?.[0] ?? null);
+      const pagine = await enumeraDaCopertine(singolo, [copertina]);
+      voci.push({
+        catena: adattatore.catena,
+        validoDal: dal, validoAl: al,
+        fonte: indirizzo,
+        pagine,
+      });
+    } finally {
+      await singolo.close();
+    }
+  }
+  return voci;
 }
 
 async function raccogliCatena(browser, adattatore) {
@@ -180,13 +215,14 @@ async function main() {
         await ispeziona(browser, adattatore);
         continue;
       }
-      const voce = await raccogliCatena(browser, adattatore);
-      if (voceValida(voce)) {
-        voci.push(voce);
-        console.log(`ok   ${voce.catena}: ${voce.pagine.length} pagine`);
-      } else {
-        console.log(`vuota ${adattatore.catena}: voce incompleta, esce dall'indice`);
-      }
+      const raccolte = adattatore.piattaforma === 'volantinopiu'
+        ? await raccogliVolantinoPiu(browser, adattatore)
+        : [await raccogliCatena(browser, adattatore)];
+      const buone = raccolte.filter(voceValida);
+      voci.push(...buone);
+      for (const v of buone) console.log(`ok   ${v.catena}: ${v.pagine.length} pagine, ${v.validoDal}→${v.validoAl}`);
+      const scartate = raccolte.length - buone.length;
+      if (scartate > 0) console.log(`vuote ${adattatore.catena}: ${scartate} voci incomplete, escono dall'indice`);
     } catch (errore) {
       console.log(`caduta ${adattatore.catena}: ${errore.message}`);
     }
@@ -197,7 +233,7 @@ async function main() {
 
   const indice = { generatoIl: new Date().toISOString().slice(0, 10), catene: voci };
   await writeFile('indice.json', `${JSON.stringify(indice, null, 2)}\n`);
-  console.log(`\nindice.json: ${voci.length} catene su ${catene.length}`);
+  console.log(`\nindice.json: ${voci.length} voci da ${catene.length} catene`);
 }
 
 if (process.argv[1]?.endsWith('raccogli.mjs')) await main();

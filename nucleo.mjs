@@ -73,3 +73,12 @@ export function paginaNumerata(copertina, numero) {
   if (!/^\d+$/.test(senzaEstensione.slice(barra + 1))) return null;
   return `${senzaEstensione.slice(0, barra + 1)}${numero}${estensione}`;
 }
+
+export const RISORSE_VOLANTINOPIU = 'https://resources.volantinopiu.it/flyer';
+
+export function copertinaVolantinoPiu(indirizzoVolantino) {
+  const numero = indirizzoVolantino.match(/volantino(\d{5,})\.html?$/i)?.[1];
+  if (!numero) return null;
+  const cartella = numero.slice(0, 5).split('').join('/');
+  return `${RISORSE_VOLANTINOPIU}/${cartella}/pagine/1.jpg`;
+}
