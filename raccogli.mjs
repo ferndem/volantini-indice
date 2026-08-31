@@ -1,11 +1,12 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { daAprire, giornoIso, separaValidita, voceValida } from './nucleo.mjs';
+import { daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
 const ATTESA_PAGINA = 30_000;
+const TETTO_PAGINE = 80;
 
 async function adattatori({ ancheLeSpente }) {
   const nomi = (await readdir(CARTELLA_CATENE)).filter((n) => n.endsWith('.json'));
@@ -80,17 +81,33 @@ async function raccogliCatena(browser, adattatore) {
       : null;
 
     const [dal, al] = separaValidita(testoValidita);
+    const assolute = [...new Set(pagine.map((p) => new URL(p, adattatore.indirizzo).toString()))];
 
     return {
       catena: adattatore.catena,
       validoDal: dal ?? adattatore.validoDal ?? null,
       validoAl: al ?? adattatore.validoAl ?? null,
       fonte: adattatore.indirizzo,
-      pagine: [...new Set(pagine.map((p) => new URL(p, adattatore.indirizzo).toString()))],
+      pagine: adattatore.enumeraPagine ? await enumeraDaCopertine(pagina, assolute) : assolute,
     };
   } finally {
     await pagina.close();
   }
+}
+
+async function enumeraDaCopertine(pagina, copertine) {
+  const tutte = [];
+  for (const copertina of copertine) {
+    tutte.push(copertina);
+    for (let numero = 2; numero <= TETTO_PAGINE; numero += 1) {
+      const successiva = paginaNumerata(copertina, numero);
+      if (!successiva) break;
+      const risposta = await pagina.request.head(successiva).catch(() => null);
+      if (!risposta?.ok()) break;
+      tutte.push(successiva);
+    }
+  }
+  return [...new Set(tutte)];
 }
 
 async function ispeziona(browser, adattatore) {

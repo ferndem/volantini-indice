@@ -62,3 +62,14 @@ export function daAprire(adattatori, { ancheLeSpente }) {
   if (ancheLeSpente) return conIndirizzo;
   return conIndirizzo.filter((a) => a.attiva !== false);
 }
+
+export function paginaNumerata(copertina, numero) {
+  const punto = copertina.lastIndexOf('.');
+  if (punto <= 0) return null;
+  const estensione = copertina.slice(punto);
+  const senzaEstensione = copertina.slice(0, punto);
+  const barra = senzaEstensione.lastIndexOf('/');
+  if (barra < 0) return null;
+  if (!/^\d+$/.test(senzaEstensione.slice(barra + 1))) return null;
+  return `${senzaEstensione.slice(0, barra + 1)}${numero}${estensione}`;
+}

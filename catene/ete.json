@@ -3,7 +3,7 @@
   "indirizzo": "https://etesupermercati.it/volantino/",
   "selettorePagina": null,
   "attributoPagina": "src",
-  "selettoreValidita": null,
+  "selettoreValidita": ".elementor-heading-title",
   "attiva": false,
-  "nota": "link diretto trovato dalla home"
+  "nota": "Il volantino e' un PDF (volantino_ete_22.pdf), non immagini: l'app si aspetta pagine-immagine. Validita' pronta: «Offerte valide dal 1 al 10 settembre 2026»"
 }

@@ -1,9 +1,9 @@
 {
   "catena": "MD",
   "indirizzo": "https://www.mdspa.it/volantino/",
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
+  "selettorePagina": "[style*='SLIDESHOW-Promo']",
+  "attributoPagina": "sfondo",
+  "selettoreValidita": ".elementor-heading-title",
   "attiva": false,
-  "nota": "ATTENZIONE: le pagine del volantino sono SFONDI CSS (SLIDESHOW-Promo-18-*.jpg), non tag <img>. La validita' c'e' gia': «dal 25 Agosto al 6 Settembre 2026» in .elementor-heading-title"
+  "nota": "Quattro pagine come sfondi CSS. La validita' e' «dal 25 Agosto al 6 Settembre 2026» ma il selettore .elementor-heading-title prende anche altri titoli: da restringere"
 }

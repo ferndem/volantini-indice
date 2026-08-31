@@ -96,6 +96,12 @@ catena che il sopralluogo non ha ancora localizzato, e la `nota` dice perché.
 `attributoPagina: "sfondo"` legge l'immagine dal **CSS** invece che dall'`src`:
 serve dove le pagine del volantino sono `background-image`, come su MD.
 
+`enumeraPagine: true` risale dalle **copertine** alle pagine interne. Le
+piattaforme tipo `volantinopiu` servono la copertina come `…/pagine/1.jpg` e le
+altre cambiando solo quel numero: si sonda `2, 3, …` con una `HEAD` finché una
+non risponde, con un tetto di 80. **Serve perché una copertina sola all'OCR non
+dice niente**: il volantino va preso intero.
+
 **Sono 21 adattatori per 27 insegne**, perché alcune condividono il sito: Conad
 con Conad City e Spazio Conad, Carrefour Market con Express, Coop con Ipercoop,
 Despar con Eurospar e Interspar.

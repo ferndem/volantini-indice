@@ -5,5 +5,5 @@
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "pennymarket.it reindirizza a penny.it"
+  "nota": "App Nuxt: la pagina non contiene immagini di volantino nel DOM iniziale"
 }

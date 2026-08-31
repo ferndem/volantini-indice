@@ -1,9 +1,9 @@
 {
   "catena": "Lidl",
   "indirizzo": "https://www.lidl.it/c/volantino-lidl/s10018048",
-  "selettorePagina": null,
+  "selettorePagina": "img.flyer__image",
   "attributoPagina": "src",
-  "selettoreValidita": null,
+  "selettoreValidita": ".flyer__name",
   "attiva": false,
-  "nota": "Esiste anche un visore diretto con le date nello slug: /l/it/volantini/offerte-valide-dal-27-08-al-2-09-volantino-settimanale-KA/view/flyer/page/N"
+  "nota": "img.flyer__image sono COPERTINE a 236x400 via imgproxy (rs:fit:400:400). Validita' pronta in .flyer__name: «Offerte valide dal 27/08 al 2/09». Servono le pagine interne, non la copertina"
 }

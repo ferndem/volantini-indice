@@ -1,9 +1,10 @@
 {
   "catena": "Pro7",
   "indirizzo": "https://pro7.it/volantini",
-  "selettorePagina": null,
+  "selettorePagina": "img[src*='resources.volantinopiu.it']",
   "attributoPagina": "src",
   "selettoreValidita": null,
-  "attiva": false,
-  "nota": "Il volantino sta su pro7.volantinopiu.com/classica/volantinoNNNNNNN.html — stessa piattaforma di Deco'"
+  "enumeraPagine": true,
+  "attiva": true,
+  "nota": "Le copertine stanno su resources.volantinopiu.it/flyer/<cifre>/pagine/1.jpg; enumeraPagine risale alle altre. Le due validita' sono in pagina ma senza classe propria: si tarano dopo"
 }

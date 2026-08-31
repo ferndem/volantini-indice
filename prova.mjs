@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { daAprire, giornoIso, separaValidita, voceValida } from './nucleo.mjs';
+import { daAprire, giornoIso, paginaNumerata, separaValidita, voceValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -66,5 +66,22 @@ assert.deepEqual(
   [],
   'un indirizzo che non e\' un URL vale come assente',
 );
+
+// Le piattaforme tipo volantinopiu servono la copertina come .../pagine/1.jpg
+// e le altre pagine cambiando solo quel numero. E' l'unico modo di avere il
+// volantino INTERO invece della sola copertina, che all'OCR non serve.
+const copertina = 'https://resources.volantinopiu.it/flyer/2/8/4/2/2/pagine/1.jpg';
+assert.equal(paginaNumerata(copertina, 7), 'https://resources.volantinopiu.it/flyer/2/8/4/2/2/pagine/7.jpg');
+assert.equal(paginaNumerata(copertina, 1), copertina, 'la pagina 1 e\' la copertina stessa');
+
+// Le cifre nel PERCORSO non si toccano: solo l'ultimo segmento, che e' il numero
+assert.equal(
+  paginaNumerata('https://x/flyer/2/8/4/2/2/pagine/12.jpg', 3),
+  'https://x/flyer/2/8/4/2/2/pagine/3.jpg',
+  'il numero a due cifre si sostituisce intero',
+);
+assert.equal(paginaNumerata('https://x/cover.jpg', 2), null, 'ultimo segmento non numerico: non si enumera');
+assert.equal(paginaNumerata('https://x/pagine/1', 2), null, 'senza estensione: non si enumera');
+assert.equal(paginaNumerata('', 2), null);
 
 console.log('prova.mjs: tutto verde');

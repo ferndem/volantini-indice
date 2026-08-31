@@ -5,5 +5,5 @@
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "PER PUNTO VENDITA: /volantino/<negozio>/<id>/<nome-volantino>/<id>. Serve un secondo salto"
+  "nota": "PER PUNTO VENDITA, e l'elenco dipende da DOVE STA IL RUNNER: sono usciti solo negozi milanesi. Per la Campania serve fissare un id di negozio"
 }

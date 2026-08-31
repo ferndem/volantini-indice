@@ -5,5 +5,5 @@
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "SINGOLARE: /volantini/ risponde «Pagina non trovata»"
+  "nota": "Chiede il punto vendita con un popup di geolocalizzazione (sn_popup_geolocation): nessuna pagina di volantino finche' non si sceglie"
 }

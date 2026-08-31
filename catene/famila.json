@@ -1,9 +1,9 @@
 {
   "catena": "Famila",
   "indirizzo": "https://www.famila.it/digital-magazine",
-  "selettorePagina": null,
+  "selettorePagina": "img[src*='promo.smt.cloud/digitalflyer']",
   "attributoPagina": "src",
   "selettoreValidita": null,
   "attiva": false,
-  "nota": "Il volantino e' un «magazine» su magazine.famila.it"
+  "nota": "Copertine 2598x3189 su promo.smt.cloud. Sono solo COPERTINE di magazine vecchi: manca la validita' e mancano le pagine interne"
 }
