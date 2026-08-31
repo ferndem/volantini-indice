@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { giornoIso, separaValidita, voceValida } from './nucleo.mjs';
+import { daAprire, giornoIso, separaValidita, voceValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
 
@@ -32,5 +32,24 @@ assert.equal(voceValida({ ...buona, validoAl: null }), false, 'senza validita no
 assert.equal(voceValida({ ...buona, fonte: '' }), false, 'senza fonte la dicitura non e\' verificabile');
 assert.equal(voceValida({ ...buona, pagine: ['/relativo.jpg'] }), false, 'pagine relative: non scaricabili dal telefono');
 assert.equal(voceValida(null), false);
+
+// Il sopralluogo serve ESATTAMENTE sulle catene non ancora accese: se
+// rispettasse `attiva` non aprirebbe mai niente, ed e' il difetto che il
+// 2026-08-31 ha fatto girare la Action a vuoto senza stampare una riga.
+const spenta = { catena: 'MD', attiva: false };
+const accesa = { catena: 'Lidl', attiva: true };
+const senzaFlag = { catena: 'Eurospin' };
+
+assert.deepEqual(
+  daAprire([spenta, accesa, senzaFlag], { ancheLeSpente: true }),
+  [spenta, accesa, senzaFlag],
+  'il sopralluogo apre anche le catene spente, altrimenti non serve a niente',
+);
+assert.deepEqual(
+  daAprire([spenta, accesa, senzaFlag], { ancheLeSpente: false }),
+  [accesa, senzaFlag],
+  'la raccolta vera salta le spente; senza flag vale accesa',
+);
+assert.deepEqual(daAprire([], { ancheLeSpente: true }), [], 'cartella vuota');
 
 console.log('prova.mjs: tutto verde');

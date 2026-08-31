@@ -62,7 +62,7 @@ niente.** Se una catena cade, esce dall'indice fino al giro dopo.
 
 | File | Cosa fa |
 |---|---|
-| `nucleo.mjs` | le funzioni pure: normalizzare una data, separare «dal … al …», decidere se una voce è pubblicabile. **Nessun browser, nessuna rete** |
+| `nucleo.mjs` | le funzioni pure: normalizzare una data, separare «dal … al …», decidere se una voce è pubblicabile e quali catene aprire. **Nessun browser, nessuna rete** |
 | `prova.mjs` | la prova del nucleo. `node prova.mjs`, senza installare niente |
 | `raccogli.mjs` | apre i siti con Playwright, applica gli adattatori, scrive `indice.json` |
 | `catene/*.json` | un adattatore per catena, **dichiarativo** |
@@ -95,6 +95,12 @@ I selettori non si indovinano. Si esegue la Action a mano con
 **`ispeziona = true`**: apre ogni catena e stampa cosa trova — immagini, iframe,
 testi che contengono «dal … al …» — **senza scrivere `indice.json`**. Da lì si
 scrivono i selettori, si mette `attiva: true`, e si esegue normalmente.
+
+**Il sopralluogo ignora `attiva`, ed è il punto.** Serve esattamente sulle
+catene ancora spente: se rispettasse quel flag non aprirebbe mai niente. Il
+primo giro del 2026-08-31 è finito a vuoto per questo — la Action è passata
+verde senza stampare una riga. Ora `daAprire()` sta nel nucleo e ha la sua
+prova.
 
 ## Ritmo, e come arriva su Pages
 

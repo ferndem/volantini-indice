@@ -56,3 +56,8 @@ export function separaValidita(testo) {
   if (pezzi.length < 2) return [giornoIso(testo), null];
   return [giornoIso(pezzi[0]), giornoIso(pezzi[1])];
 }
+
+export function daAprire(adattatori, { ancheLeSpente }) {
+  if (ancheLeSpente) return adattatori;
+  return adattatori.filter((a) => a.attiva !== false);
+}

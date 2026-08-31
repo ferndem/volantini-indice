@@ -1,18 +1,18 @@
 import { chromium } from 'playwright';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { giornoIso, separaValidita, voceValida } from './nucleo.mjs';
+import { daAprire, giornoIso, separaValidita, voceValida } from './nucleo.mjs';
 
 const CARTELLA_CATENE = 'catene';
 const ATTESA_SELETTORE = 15_000;
 const ATTESA_PAGINA = 30_000;
 
-async function adattatori() {
+async function adattatori({ ancheLeSpente }) {
   const nomi = (await readdir(CARTELLA_CATENE)).filter((n) => n.endsWith('.json'));
   const letti = await Promise.all(
     nomi.sort().map(async (n) => JSON.parse(await readFile(join(CARTELLA_CATENE, n), 'utf8'))),
   );
-  return letti.filter((a) => a.attiva !== false);
+  return daAprire(letti, { ancheLeSpente });
 }
 
 async function apri(browser, indirizzo) {
@@ -79,7 +79,12 @@ async function ispeziona(browser, adattatore) {
 
 async function main() {
   const soloIspezione = process.argv.includes('--ispeziona');
-  const catene = await adattatori();
+  const catene = await adattatori({ ancheLeSpente: soloIspezione });
+  if (catene.length === 0) {
+    console.log('nessuna catena da aprire: tutte spente, o cartella catene/ vuota');
+    return;
+  }
+  console.log(`${catene.length} catene: ${catene.map((c) => c.catena).join(', ')}`);
   const browser = await chromium.launch();
   const voci = [];
 
