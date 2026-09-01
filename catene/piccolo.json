@@ -1,9 +1,10 @@
 {
   "catena": "Supermercati Piccolo",
   "indirizzo": "https://www.supermercatipiccolo.it/index.php/volantino",
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "attiva": false,
-  "nota": "Il volantino sta dentro un flip-book heyzine.com: le pagine non sono URL sul sito della catena"
+  "piattaforma": "pdf",
+  "seguiLink": "heyzine\\.com/flip-book/",
+  "selettoreValidita": ".astroid-content, .com-content-article, body",
+  "attiva": true,
+  "zona": { "nome": "Napoli", "lat": 40.85, "lon": 14.27, "raggioKm": 60 },
+  "nota": "Heyzine NON serve immagini: e' un lettore pdf.js e il volantino vero sta su cdnm.heyzine.com/files/uploaded/<hash>.pdf. Verificato il 2026-09-01"
 }

@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
-import { bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, giornoIso, primaValidita, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, titoloDaHtml, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
+import { conRitentativi, negoziCarrefour, schedeVolantinoDaSitemap, paginaAffiancataCarrefour, bersagliConad, fileDelContenuto, fileDigitalFlyer, giornoDaTimbro, negoziDelleProvince, validitaDaTesto, pdfDaIndirizzi, pdfHeyzine, bersagli, copertinaVolantinoPiu, daAprire, formatoDaTitolo, giornoIso, primaValidita, numeriVolantinoPiu, paginaNumerata, paginaVolantinoPiu, percheNonValida, separaValidita, testoLeggibile, titoloDaHtml, validitaDaHtml, voceValida, zonaValida } from './nucleo.mjs';
 
 const oggi = new Date('2026-08-31T12:00:00Z');
+
 
 assert.equal(giornoIso('2026-09-03', oggi), '2026-09-03', 'una data ISO passa intera');
 assert.equal(giornoIso('dal 27 agosto', oggi), '2026-08-27', 'giorno e mese in lettere');
@@ -21,6 +22,32 @@ assert.equal(giornoIso('28 dicembre', new Date('2027-01-03T12:00:00Z')), '2026-1
 assert.deepEqual(separaValidita('dal 27 agosto al 3 settembre 2026'), ['2026-08-27', '2026-09-03']);
 assert.deepEqual(separaValidita(null), [null, null]);
 assert.deepEqual(separaValidita('offerte valide'), [null, null], 'testo senza date');
+
+// TODIS SCRIVE IL MESE UNA VOLTA SOLA: «Dal 3 al 16 settembre». Senza ereditare
+// il mese dalla fine, validoDal resta nullo e la voce viene scartata in
+// silenzio -- verificato sul sito il 2026-09-01.
+assert.deepEqual(
+  separaValidita('Dal 3 al 16 settembre'),
+  ['2026-09-03', '2026-09-16'],
+  'il mese scritto una volta sola vale per tutte e due le date',
+);
+assert.equal(
+  validitaDaTesto('Volantino Todis Dal 3 al 16 settembre 2026'),
+  'Dal 3 al 16 settembre 2026',
+  'la regex deve accorgersi anche della forma senza mese sulla prima data',
+);
+// A cavallo di mese l'inizio sta nel mese PRIMA della fine, non nello stesso:
+// «dal 28 al 3 settembre» comincia il 28 agosto.
+assert.deepEqual(
+  separaValidita('dal 28 al 3 settembre 2026'),
+  ['2026-08-28', '2026-09-03'],
+  'se il giorno di inizio supera quello di fine, il mese e\' quello prima',
+);
+assert.deepEqual(
+  separaValidita('dal 28 al 3 gennaio 2027'),
+  ['2026-12-28', '2027-01-03'],
+  'e a cavallo d\'anno torna indietro anche di anno',
+);
 
 const buona = {
   catena: 'MD', validoDal: '2026-08-27', validoAl: '2026-09-03',
@@ -258,5 +285,205 @@ assert.equal(primaValidita(['niente', 'nemmeno qui']), null);
 assert.equal(primaValidita([]), null);
 assert.equal(primaValidita(null), null);
 assert.equal(primaValidita([null, 42, 'dal 1/9/2026 al 2/9/2026']), 'dal 1/9/2026 al 2/9/2026');
+
+
+// UN VOLANTINO IN PDF E' LA NORMA, NON L'ECCEZIONE: di 21 catene censite il
+// 2026-09-01 la stragrande maggioranza pubblica un PDF, e volantinopiu e' la
+// rara piattaforma che serve JPG numerati. Vedi ripartenza-volantini.md §4.
+assert.deepEqual(
+  pdfDaIndirizzi(['https://x/volantino.pdf', 'https://x/pagina.jpg', 'https://x/altro.PDF']),
+  ['https://x/volantino.pdf', 'https://x/altro.PDF'],
+  'si tengono solo i pdf, senza badare alle maiuscole',
+);
+assert.deepEqual(
+  pdfDaIndirizzi(['https://www.todis.it/wp-content/uploads/2026/08/OS_19.pdf?x33874']),
+  ['https://www.todis.it/wp-content/uploads/2026/08/OS_19.pdf?x33874'],
+  'Todis appende una query al pdf: non deve buttarlo via',
+);
+assert.deepEqual(
+  pdfDaIndirizzi(['https://x/informativa-privacy.pdf', 'https://x/volantino.pdf'], ['privacy', 'codice[_-]etico']),
+  ['https://x/volantino.pdf'],
+  'le informative non sono volantini e si escludono per nome',
+);
+assert.deepEqual(pdfDaIndirizzi(['/relativo.pdf']), [], 'un pdf relativo non e\' scaricabile dal telefono');
+assert.deepEqual(pdfDaIndirizzi(null), []);
+assert.deepEqual(pdfDaIndirizzi(['https://x/a.pdf', 'https://x/a.pdf']), ['https://x/a.pdf'], 'niente doppioni');
+
+// Heyzine non serve immagini: e' un lettore pdf.js, e il volantino vero e' il
+// PDF su cdnm. Verificato su Supermercati Piccolo il 2026-09-01.
+assert.equal(
+  pdfHeyzine('a href=\"https:\\/\\/cdnm.heyzine.com\\/files\\/uploaded\\/5794c6a7487430248b861ced4d741479d85ca043.pdf\"'),
+  'https://cdnm.heyzine.com/files/uploaded/5794c6a7487430248b861ced4d741479d85ca043.pdf',
+);
+assert.equal(pdfHeyzine('<html>senza flipbook</html>'), null);
+assert.equal(pdfHeyzine(null), null);
+
+
+// EUROSPIN: le date arrivano come timbro compatto, non come testo italiano.
+assert.equal(giornoDaTimbro('20260824000000'), '2026-08-24');
+assert.equal(giornoDaTimbro('20260906000000'), '2026-09-06');
+assert.equal(giornoDaTimbro(null), null);
+assert.equal(giornoDaTimbro('2026-08-24'), null, 'un ISO non e\' un timbro: non si finge di capirlo');
+assert.equal(giornoDaTimbro('20261324000000'), null, 'mese 13 non esiste');
+
+const contenuto = {
+  properties: [
+    { code: 'PDF', values: [{ uniqueId: '8d3fbec2-3648-466e-842b-e57274e7e19a', name: 'EIT-CAMPANIA.pdf' }] },
+    { code: 'PREVIEW', values: [{ uniqueId: 'altro', name: 'EIT-CAMPANIA.jpg' }] },
+  ],
+};
+assert.deepEqual(fileDelContenuto(contenuto, 'PDF'), { uniqueId: '8d3fbec2-3648-466e-842b-e57274e7e19a', nome: 'EIT-CAMPANIA.pdf' });
+assert.equal(fileDelContenuto(contenuto, 'MANCANTE'), null);
+assert.equal(fileDelContenuto({ properties: [{ code: 'PDF', values: [] }] }, 'PDF'), null, 'una proprieta\' senza valori non e\' un file');
+assert.equal(
+  fileDigitalFlyer('https://digitalflyer.eurospin.it', fileDelContenuto(contenuto, 'PDF')),
+  'https://digitalflyer.eurospin.it/files/8d3fbec2-3648-466e-842b-e57274e7e19a/EIT-CAMPANIA.pdf',
+);
+assert.equal(fileDigitalFlyer('https://x', null), null);
+
+// I 1283 negozi arrivano in una chiamata sola: si sceglie per PROVINCIA, e un
+// negozio senza coordinate non puo\' diventare una zona.
+const negozi = [
+  { alias: 'benevento', province: { code: 'BN' }, gpsCoordinates: { latitude: 41.112, longitude: 14.75 } },
+  { alias: 'beinasco', province: { code: 'TO' }, gpsCoordinates: { latitude: 45.02, longitude: 7.6 } },
+  { alias: 'milano', province: { code: 'MI' }, gpsCoordinates: { latitude: 45.46, longitude: 9.19 } },
+  { alias: 'senza-gps', province: { code: 'BN' }, gpsCoordinates: null },
+];
+assert.deepEqual(negoziDelleProvince(negozi, ['BN', 'TO']).map((n) => n.alias), ['benevento', 'beinasco']);
+assert.deepEqual(negoziDelleProvince(negozi, ['bn']).map((n) => n.alias), ['benevento'], 'la sigla non e\' sensibile alle maiuscole');
+assert.deepEqual(negoziDelleProvince(negozi, []), []);
+assert.deepEqual(negoziDelleProvince(null, ['BN']), []);
+
+// Una catena che si raccoglie DALL'API non ha un `indirizzo` da aprire, e il
+// filtro delle apribili la buttava via prima ancora di provarci.
+const daApi = { catena: 'Eurospin', origineApi: 'https://digitalflyer.eurospin.it', province: ['BN'] };
+assert.deepEqual(
+  daAprire([daApi], { ancheLeSpente: false }),
+  [daApi],
+  'un adattatore con origineApi e\' apribile anche senza indirizzo',
+);
+assert.deepEqual(
+  daAprire([{ ...daApi, attiva: false }], { ancheLeSpente: false }),
+  [],
+  'ma resta spegnibile come tutte le altre',
+);
+assert.deepEqual(
+  daAprire([{ catena: 'Coop', attiva: false }], { ancheLeSpente: true }),
+  [],
+  'una catena senza indirizzo NE\' origineApi resta fuori: non c\'e\' niente da aprire',
+);
+
+
+// CONAD: la scheda negozio e\' l\'indirizzo da aprire, e un negozio SENZA
+// volantini non va aperto -- a Benevento sono 16 su 21.
+const negoziConad = [
+  { codiceProvincia: 'BN', nomeComune: 'BENEVENTO', indirizzo: 'VIA COLONNETTE SNC', latitudine: 41.12, longitudine: 14.77, volantiniCount: 2, pdvPlainUrl: 'https://www.conad.it/ricerca-negozi/conad-a--006212' },
+  { codiceProvincia: 'BN', nomeComune: 'BENEVENTO', indirizzo: 'SENZA VOLANTINI', latitudine: 41.13, longitudine: 14.78, volantiniCount: 0, pdvPlainUrl: 'https://www.conad.it/ricerca-negozi/conad-b--006213' },
+  { codiceProvincia: 'TO', nomeComune: 'TORINO', indirizzo: 'VIA TARINO 10', latitudine: 45.07, longitudine: 7.69, volantiniCount: 4, pdvPlainUrl: 'https://www.conad.it/ricerca-negozi/conad-c--004021' },
+  { codiceProvincia: 'MI', nomeComune: 'MILANO', indirizzo: 'FUORI PROVINCIA', latitudine: 45.46, longitudine: 9.19, volantiniCount: 3, pdvPlainUrl: 'https://www.conad.it/ricerca-negozi/conad-d--000001' },
+  { codiceProvincia: 'TO', nomeComune: 'TORINO', indirizzo: 'SENZA COORDINATE', latitudine: null, longitudine: null, volantiniCount: 2, pdvPlainUrl: 'https://www.conad.it/ricerca-negozi/conad-e--000002' },
+];
+const scelti = bersagliConad(negoziConad, ['BN', 'TO'], 15);
+assert.deepEqual(scelti.map((b) => b.indirizzo), [
+  'https://www.conad.it/ricerca-negozi/conad-a--006212',
+  'https://www.conad.it/ricerca-negozi/conad-c--004021',
+]);
+assert.deepEqual(scelti[0].zona, { nome: 'BENEVENTO — VIA COLONNETTE SNC', lat: 41.12, lon: 14.77, raggioKm: 15 });
+assert.equal(zonaValida(scelti[0].zona) !== null, true, 'la zona costruita deve passare il vaglio delle zone');
+
+// I centri di ricerca si sovrappongono: lo stesso negozio torna due volte e
+// non deve diventare due bersagli.
+assert.equal(bersagliConad([negoziConad[0], negoziConad[0]], ['BN'], 15).length, 1);
+assert.deepEqual(bersagliConad(null, ['BN'], 15), []);
+
+
+// CARREFOUR: l\'API dei negozi porta la provincia in `stateCode`. A Benevento
+// non ce n\'e\' NESSUNO -- verificato il 2026-09-01 su due strade indipendenti,
+// la sitemap e questa API. Una catena assente non e\' un difetto.
+const negoziCf = [
+  { ID: '2117', city: 'RIVALTA', address1: 'via Giaveno 18', stateCode: 'TO', latitude: 45.03, longitude: 7.52 },
+  { ID: '0757', city: 'PINEROLO', address1: 'via Giustetto 43', stateCode: 'TO', latitude: 44.88, longitude: 7.33 },
+  { ID: '9999', city: 'ASTI', address1: 'fuori provincia', stateCode: 'AT', latitude: 44.9, longitude: 8.2 },
+  { ID: '2117', city: 'RIVALTA', address1: 'doppione', stateCode: 'TO', latitude: 45.03, longitude: 7.52 },
+  { ID: '5555', city: 'TORINO', address1: 'senza coordinate', stateCode: 'TO', latitude: null, longitude: null },
+];
+assert.deepEqual(negoziCarrefour(negoziCf, ['TO']).map((n) => n.codice), ['2117', '0757']);
+assert.deepEqual(negoziCarrefour(negoziCf, ['BN']), [], 'a Benevento Carrefour non c\'e\'');
+assert.equal(negoziCarrefour(negoziCf, ['TO'])[0].nome, 'RIVALTA — via Giaveno 18');
+// IL TETTO SI APPLICA DOPO L'AGGANCIO CON LA SITEMAP, non prima: i primi tre
+// negozi torinesi che l'API restituisce NON hanno una scheda volantino, e
+// tagliare prima dava zero voci -- successo il 2026-09-01.
+
+// La sitemap raddoppia il percorso: «/volantino/x/2117//volantino/x/2117/...».
+// La scheda vera e\' il primo pezzo, e l\'id e\' la chiave.
+const sitemap = `<urlset>
+  <url><loc>https://www.carrefour.it/volantino/iper-rivalta/2117</loc></url>
+  <url><loc>https://www.carrefour.it/volantino/iper-rivalta/2117//volantino/iper-rivalta/2117/sottocosto/56872/56872</loc></url>
+  <url><loc>https://www.carrefour.it/volantino/iper-pinerolo/0757</loc></url>
+  <url><loc>https://www.carrefour.it/promozioni/</loc></url></urlset>`;
+const schede = schedeVolantinoDaSitemap(sitemap);
+assert.equal(schede.size, 2, 'due schede, non quattro: il doppione e la pagina estranea non contano');
+assert.equal(schede.get('2117'), 'https://www.carrefour.it/volantino/iper-rivalta/2117');
+assert.equal(schede.get('0757'), 'https://www.carrefour.it/volantino/iper-pinerolo/0757');
+assert.equal(schedeVolantinoDaSitemap(null).size, 0);
+
+// Le pagine Carrefour sono DOPPIE: «_2-3_slider.jpg». La copertina si chiama
+// «_mp1_0-1_slider.jpg» e le successive vanno a due a due.
+const cop = 'https://gdodig-car.youroperator.it/volantini/iper_19/19_PIEMONTE/desktop/19_PIEMONTE_mp1_0-1_slider.jpg';
+assert.equal(
+  paginaAffiancataCarrefour(cop, 2),
+  'https://gdodig-car.youroperator.it/volantini/iper_19/19_PIEMONTE/desktop/19_PIEMONTE_2-3_slider.jpg',
+);
+assert.equal(
+  paginaAffiancataCarrefour('https://x/19_PIEMONTE_2-3_slider.jpg', 4),
+  'https://x/19_PIEMONTE_4-5_slider.jpg',
+  'anche partendo da una pagina interna',
+);
+assert.equal(paginaAffiancataCarrefour('https://x/pagina.jpg', 2), null, 'un nome che non e\' Carrefour non si indovina');
+assert.equal(paginaAffiancataCarrefour(cop, 0), null);
+
+
+// CARREFOUR SCRIVE «dal 20/08 al 3/09»: giorno e mese, SENZA anno. La regex
+// pretendeva l\'anno nella forma numerica, quindi non trovava niente e le cento
+// schede negozio producevano ZERO voci senza un solo messaggio d\'errore.
+// Trovato il 2026-09-01 -- trappole.md §43.
+assert.equal(validitaDaTesto('dal 20/08 al 3/09 Prezzi Freschi'), 'dal 20/08 al 3/09');
+assert.deepEqual(separaValidita('dal 20/08 al 3/09'), ['2026-08-20', '2026-09-03']);
+assert.deepEqual(separaValidita('dal 4/09 al 13/09'), ['2026-09-04', '2026-09-13']);
+assert.equal(validitaDaTesto('dal 27/08/2026 al 3/09/2026'), 'dal 27/08/2026 al 3/09/2026', 'con l\'anno funziona come prima');
+assert.equal(validitaDaTesto('dal 5 al 12'), null, 'due numeri nudi non sono date');
+
+
+// UN ERRORE DI RETE PASSEGGERO NON DEVE COSTARE UNA CATENA INTERA. Il
+// 2026-09-01 un ERR_NAME_NOT_RESOLVED sull'ottantunesimo negozio ha fatto
+// buttare 191 voci Carrefour gia' raccolte, e due fetch andate a vuoto hanno
+// azzerato Conad -- trappole.md §44.
+{
+  let chiamate = 0;
+  const esito = await conRitentativi(async () => { chiamate += 1; return chiamate < 3 ? null : 'buona'; });
+  assert.equal(esito, 'buona');
+  assert.equal(chiamate, 3, 'ritenta finche\' non riesce, dentro il tetto');
+}
+{
+  let chiamate = 0;
+  assert.equal(await conRitentativi(async () => { chiamate += 1; return null; }), null);
+  assert.equal(chiamate, 3, 'e poi si arrende, senza ciclare all\'infinito');
+}
+{
+  let chiamate = 0;
+  const esito = await conRitentativi(async () => { chiamate += 1; throw new Error('rete giu\''); });
+  assert.equal(esito, null, 'un\'eccezione vale come tentativo fallito, non esce dal ciclo');
+  assert.equal(chiamate, 3);
+}
+{
+  let chiamate = 0;
+  assert.equal(await conRitentativi(async () => { chiamate += 1; return 0; }), 0, 'zero e\' un esito valido, non un fallimento');
+  assert.equal(chiamate, 1);
+}
+{
+  const attese = [];
+  await conRitentativi(async () => null, { quanti: 3, attesa: (n) => { attese.push(n); } });
+  assert.deepEqual(attese, [0, 1], 'si aspetta fra un tentativo e l\'altro, non dopo l\'ultimo');
+}
 
 console.log('prova.mjs: tutto verde');

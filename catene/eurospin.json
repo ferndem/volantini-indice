@@ -1,9 +1,14 @@
 {
   "catena": "Eurospin",
-  "indirizzo": "https://www.eurospin.it/volantino/",
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "attiva": false,
-  "nota": "Chiede il punto vendita con un popup di geolocalizzazione (sn_popup_geolocation): nessuna pagina di volantino finche' non si sceglie"
+  "piattaforma": "digitalflyer",
+  "origineApi": "https://digitalflyer.eurospin.it",
+  "insegnaApi": "eurospin/eurospin-italia",
+  "province": [
+    "BN",
+    "TO"
+  ],
+  "raggioKm": 15,
+  "attiva": true,
+  "nota": "PER PUNTO VENDITA, e l'API li da' tutti e 1283 in una chiamata con provincia e coordinate. Il volantino e' un PDF. Le province sono BN e TO per decisione dell'utente del 2026-09-01: aprirne altre vuol dire aggiungere una sigla qui, non scrivere codice. La credenziale OAuth NON sta in questo file: questo repo e' PUBBLICO e la credenziale e' di Eurospin. Sta nella variabile EUROSPIN_DIGITALFLYER, che in CI e' un secret. Senza, la catena si salta e lo dice.",
+  "credenzialiDaVariabile": "EUROSPIN_DIGITALFLYER"
 }

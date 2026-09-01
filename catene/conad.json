@@ -1,9 +1,36 @@
 {
   "catena": "Conad",
-  "indirizzo": "https://www.conad.it/ricerca-negozi",
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "attiva": false,
-  "nota": "PER PUNTO VENDITA. Sulla home ci sono gia' card con .rt213-card-product-flyer__validity"
+  "piattaforma": "pdf",
+  "negoziDa": "conad",
+  "origineApi": "https://www.conad.it",
+  "centri": [
+    {
+      "nome": "Benevento",
+      "lat": 41.1297,
+      "lon": 14.7827
+    },
+    {
+      "nome": "Torino",
+      "lat": 45.0703,
+      "lon": 7.6869
+    }
+  ],
+  "province": [
+    "BN",
+    "TO"
+  ],
+  "raggioRicercaKm": 60,
+  "raggioKm": 15,
+  "pdfEsclusi": [
+    "privacy",
+    "informativa",
+    "regolamento",
+    "cookie",
+    "accessibilita",
+    "strategia",
+    "bilancio",
+    "codice[_-]etico"
+  ],
+  "attiva": true,
+  "nota": "PER PUNTO VENDITA. L'API dei negozi vuole un centro e un raggio, quindi si interroga una volta per provincia e si filtra su codiceProvincia. Si aprono SOLO i negozi con volantiniCount>0. Il volantino e' un PDF servito da /assets/common/volantini/, e la validita' sta nella card accanto al link: «Dal 27 ago al 9 set 2026»"
 }

@@ -24,7 +24,7 @@ concurrency:
 jobs:
   raccogli:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
 
@@ -43,6 +43,8 @@ jobs:
 
       - name: Raccogli
         if: ${{ !inputs.ispeziona }}
+        env:
+          EUROSPIN_DIGITALFLYER: ${{ secrets.EUROSPIN_DIGITALFLYER }}
         run: node raccogli.mjs
 
       - name: Pubblica se e' cambiato

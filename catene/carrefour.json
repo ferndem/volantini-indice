@@ -1,15 +1,21 @@
 {
   "catena": "Carrefour Market",
-  "indirizzo": "https://www.carrefour.it/volantino",
-  "zona": {
-    "nome": "Napoli",
-    "lat": 40.85,
-    "lon": 14.27,
-    "raggioKm": 60
-  },
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "attiva": false,
-  "nota": "PER PUNTO VENDITA e l'elenco DIPENDE DA DOVE STA IL RUNNER: dal sopralluogo sono usciti solo negozi milanesi. Serve l'indirizzo diretto di un negozio campano, nella forma /volantino/<slug>/<id>, e la zona qui sopra ne descrive il bacino"
+  "piattaforma": "carrefour",
+  "origineApi": "https://www.carrefour.it",
+  "sitemap": "https://www.carrefour.it/sitemap-volantini-sitemap.xml",
+  "centri": [
+    {
+      "nome": "Torino",
+      "lat": 45.0703,
+      "lon": 7.6869
+    }
+  ],
+  "province": [
+    "TO"
+  ],
+  "raggioRicercaKm": 50,
+  "raggioKm": 12,
+  "tettoNegozi": 0,
+  "attiva": true,
+  "nota": "IN PROVINCIA DI BENEVENTO NON C'E' NESSUN NEGOZIO: verificato il 2026-09-01 su due strade indipendenti, la sitemap dei volantini e l'API Stores-FindStores, che per Benevento restituisce solo AV CE SA NA CB. Per questo il centro e' solo Torino, dove i negozi sono 234. Il visore e' YourOperator e serve IMMAGINI, non PDF: doppie pagine 1899x950 che l'OCR legge bene (86 righe, 26 prezzi, fiducia 0,98 misurata con Vision il 2026-09-01). Le pagine si enumerano _2-3_, _4-5_ dalla copertina _mp1_0-1_. NIENTE TETTO: i negozi piu' vicini al centro di Torino sono tutti Carrefour Express, che NON pubblicano volantino (0 link), quindi tagliare per prossimita' dava zero voci. Si aprono tutti i 100 che hanno una scheda nella sitemap."
 }

@@ -262,3 +262,92 @@ Ma **lo scarico delle pagine, che avviene sul telefono, espone l'indirizzo IP
 dell'utente al server della catena.** È lo stesso atto di aprire il volantino in
 un browser, ma la promessa «non esce nulla di tuo» lì non vale, e l'app deve
 dirlo.
+
+## La strategia `pdf`
+
+Dal 2026-09-01 un adattatore può dichiarare `"piattaforma": "pdf"`. È il caso
+**più comune**: quasi ogni catena italiana pubblica il volantino come PDF, e
+`volantinopiu` (Decò, Pro7) è l'eccezione che serve JPG numerati.
+
+| Campo | A cosa serve |
+|---|---|
+| `piattaforma: "pdf"` | apre la pagina, raccoglie i `<a href>` che finiscono in `.pdf` |
+| `pdfEsclusi` | regex dei PDF che **non** sono volantini: informative, regolamenti, codici etici |
+| `seguiLink` | regex dei link da aprire per cercare il PDF **una pagina più in là** — serve a Todis (la data sta su `/volantini-<regione>/`, il PDF su `/volantini/<regione>/`) e a heyzine |
+| `selettoreValidita` | come per le altre strategie: **un insieme di candidati**, non un puntamento |
+
+Un flip-book **heyzine** si riconosce da solo: seguendo il link si estrae
+`cdnm.heyzine.com/files/uploaded/<hash>.pdf`. Heyzine è un lettore `pdf.js`,
+non un servitore di immagini — `trappole.md` §41.
+
+Ogni PDF trovato diventa **una voce** con `pagine: [indirizzo]`. L'app
+riconosce il PDF dalla firma `%PDF-`, non dall'estensione: Todis appende una
+query all'URL.
+
+## La strategia `digitalflyer` — le catene per punto vendita
+
+Alcune catene non hanno **un** volantino: ne hanno uno per negozio. Il selettore
+di negozio **non si guida a mano**: si chiama l'API che c'è sotto.
+
+Eurospin gira su **SMT digitalflyer** e dà tutti i **1283 negozi in una
+chiamata**, ognuno con `province.code` e `gpsCoordinates`. Da lì:
+
+```
+POST {origineApi}/oauth/token                       Basic + client_credentials
+GET  {origineApi}/api/{insegnaApi}/stores?size=2000  tutti i negozi
+GET  .../stores/{alias}/promotions                   date come timbro 20260824000000
+GET  .../stores/{alias}/promotions/{p}/contents-light?typeCode=FLY
+GET  {origineApi}/files/{uniqueId}/{nome}            il PDF
+```
+
+| Campo | A cosa serve |
+|---|---|
+| `origineApi`, `insegnaApi` | dove chiamare |
+| `credenzialiDaVariabile` | il **nome di una variabile d'ambiente**, non la credenziale. Questo repo è **pubblico** e la credenziale è di Eurospin: sta in un secret. Senza, la catena si salta e lo dice |
+| `province` | **le sigle da tenere**: `["BN","TO"]` oggi. Per aprirne altre si aggiunge la sigla, **non si scrive codice** |
+| `raggioKm` | il raggio della zona di ogni negozio |
+
+**Un adattatore con `origineApi` è apribile anche senza `indirizzo`** — è la
+riga che `daAprire` ha dovuto imparare, altrimenti una catena tutta-API veniva
+scartata prima di provarci.
+
+**La `fonte` è l'URL del PDF, non la pagina del negozio.** Lo stesso volantino
+regionale è servito a molti negozi: usando il PDF come `fonte`, la cache delle
+letture sul telefono lo legge **una volta sola** e l'offerta si mostra una
+volta sola — `regole-di-dominio.md` §12.7bis. La `zona` invece resta quella del
+singolo negozio, con le sue coordinate.
+
+### Il secret che serve a Eurospin
+
+```
+gh secret set EUROSPIN_DIGITALFLYER --repo ferndem/volantini-indice --body '<basic base64>'
+export EUROSPIN_DIGITALFLYER='<basic base64>'   # per i giri in locale
+```
+
+Il valore è l'intestazione `Basic` che il visore di `eurospin.it` manda a
+`digitalflyer.eurospin.it/oauth/token`: si legge dalla scheda Rete del browser
+sulla pagina di un volantino per punto vendita. **Non si committa.**
+
+## La strategia `carrefour` — due livelli, con cache
+
+Carrefour è l'unica catena per punto vendita che serve **immagini** invece di
+un PDF, e sta su due livelli: la **scheda negozio** elenca i volantini con la
+loro validità, e ogni **volantino** ha le sue pagine.
+
+```
+GET {origineApi}/on/demandware.store/.../Stores-FindStores?lat=&long=&radius=
+        -> negozi con stateCode (la provincia) e coordinate
+GET {sitemap}   -> l'indirizzo della scheda di ogni negozio, per id
+apri scheda     -> i link ai volantini, con «dal .. al ..» accanto
+apri volantino  -> la copertina _mp1_0-1_slider.jpg, poi _2-3_, _4-5_ per HEAD
+```
+
+**Le pagine dei volantini si aprono una volta sola**, non una per negozio: la
+cache è sull'indirizzo del volantino. Senza, cento negozi che condividono lo
+stesso volantino regionale lo aprirebbero cento volte.
+
+**Il tetto sui negozi va applicato dopo l'aggancio con la sitemap**, non prima.
+I negozi più vicini al centro di Torino sono tutti **Carrefour Express, che non
+pubblicano volantino**: tagliare per prossimità dava zero voci. Oggi il tetto è
+tolto e si aprono tutti i negozi che hanno una scheda.
+

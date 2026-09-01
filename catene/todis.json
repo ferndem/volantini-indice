@@ -1,45 +1,51 @@
 {
   "catena": "Todis",
+  "piattaforma": "pdf",
+  "seguiLink": "todis\\.it/volantini/",
+  "selettoreValidita": ".elementor-heading-title",
+  "pdfEsclusi": [
+    "privacy",
+    "informativa",
+    "regolamento",
+    "cookie"
+  ],
+  "attiva": true,
   "zone": [
     {
       "nome": "Lazio",
-      "indirizzo": "https://todis.it/volantini-lazio/",
+      "indirizzo": "https://www.todis.it/volantini-lazio/",
       "lat": 41.89,
       "lon": 12.48,
       "raggioKm": 120
     },
     {
       "nome": "Puglia",
-      "indirizzo": "https://todis.it/volantini-puglia/",
+      "indirizzo": "https://www.todis.it/volantini-puglia/",
       "lat": 41.12,
       "lon": 16.87,
       "raggioKm": 180
     },
     {
       "nome": "Sicilia",
-      "indirizzo": "https://todis.it/volantini-sicilia/",
+      "indirizzo": "https://www.todis.it/volantini-sicilia/",
       "lat": 38.12,
       "lon": 13.36,
       "raggioKm": 200
     },
     {
       "nome": "Abruzzo, Marche e Molise",
-      "indirizzo": "https://todis.it/volantini-abruzzo-marche-molise/",
+      "indirizzo": "https://www.todis.it/volantini-abruzzo-marche-molise/",
       "lat": 42.35,
       "lon": 13.4,
       "raggioKm": 170
     },
     {
       "nome": "Umbria e Toscana",
-      "indirizzo": "https://todis.it/volantini-umbria-toscana/",
+      "indirizzo": "https://www.todis.it/volantini-umbria-toscana/",
       "lat": 43.11,
       "lon": 12.39,
       "raggioKm": 150
     }
   ],
-  "selettorePagina": null,
-  "attributoPagina": "src",
-  "selettoreValidita": null,
-  "attiva": false,
-  "nota": "Una voce per regione. LA CAMPANIA NON C'E': /volantini-campania/ risponde 404, verificato il 2026-08-31 — Todis non ci pubblica. I selettori delle pagine restano da tarare col sopralluogo, che ora apre tutte e cinque"
+  "nota": "La data sta sulla pagina /volantini-<regione>/, il PDF su /volantini/<regione>/: serve il salto. LA CAMPANIA NON C'E', /volantini-campania/ e' 404 — verificato il 2026-08-31"
 }
