@@ -1,5 +1,5 @@
 {
-  "generatoIl": "2026-08-31",
+  "generatoIl": "2026-09-01",
   "catene": [
     {
       "catena": "Decò",
@@ -555,6 +555,48 @@
         "https://resources.volantinopiu.it/flyer/2/8/4/9/8/pagine/30.jpg",
         "https://resources.volantinopiu.it/flyer/2/8/4/9/8/pagine/31.jpg",
         "https://resources.volantinopiu.it/flyer/2/8/4/9/8/pagine/32.jpg"
+      ],
+      "formato": "Supermercati"
+    },
+    {
+      "catena": "Pro7",
+      "validoDal": "2026-09-03",
+      "validoAl": "2026-09-11",
+      "fonte": "https://pro7.volantinopiu.com/volantino2859900.html",
+      "pagine": [
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/1.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/2.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/3.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/4.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/5.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/6.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/7.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/8.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/9.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/10.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/11.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/12.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/13.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/14.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/15.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/16.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/17.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/18.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/19.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/20.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/21.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/22.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/23.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/24.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/25.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/26.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/27.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/28.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/29.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/30.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/31.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/32.jpg",
+        "https://resources.volantinopiu.it/flyer/2/8/5/9/9/pagine/33.jpg"
       ],
       "formato": "Supermercati"
     }
