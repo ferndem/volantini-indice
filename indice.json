@@ -1,5 +1,5 @@
 {
-  "generatoIl": "2026-10-13",
+  "generatoIl": "2026-10-14",
   "catene": [
     {
       "catena": "Carrefour Market",
@@ -6094,6 +6094,27 @@
         "https://resources.volantinopiu.it/flyer/2/9/1/1/5/pagine/11.jpg"
       ],
       "formato": "Gourmet"
+    },
+    {
+      "catena": "Decò",
+      "validoDal": "2026-10-15",
+      "validoAl": "2026-10-19",
+      "fonte": "https://deco.volantinopiu.com/volantino2917500.html",
+      "pagine": [
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/1.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/2.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/3.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/4.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/5.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/6.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/7.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/8.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/9.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/10.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/11.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/1/7/5/pagine/12.jpg"
+      ],
+      "formato": "MaxiStore"
     },
     {
       "catena": "Etè",
