@@ -1,5 +1,5 @@
 {
-  "generatoIl": "2026-10-23",
+  "generatoIl": "2026-10-24",
   "catene": [
     {
       "catena": "Carrefour Market",
@@ -6187,21 +6187,6 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
-      "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
-      ],
-      "zona": {
-        "nome": "Beinasco — Strada Orbassano",
-        "lat": 45.018,
-        "lon": 7.574,
-        "raggioKm": 15
-      }
-    },
-    {
-      "catena": "Eurospin",
       "validoDal": "2026-10-22",
       "validoAl": "2026-11-01",
       "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
@@ -6224,9 +6209,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Benevento — S.S. Appia Km 257,700 - Contrada Pontecorvo",
-        "lat": 41.112,
-        "lon": 14.75,
+        "nome": "Beinasco — Strada Orbassano",
+        "lat": 45.018,
+        "lon": 7.574,
         "raggioKm": 15
       }
     },
@@ -6254,9 +6239,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Benevento — Via Napoli, 17/19/21",
-        "lat": 41.127,
-        "lon": 14.776,
+        "nome": "Benevento — S.S. Appia Km 257,700 - Contrada Pontecorvo",
+        "lat": 41.112,
+        "lon": 14.75,
         "raggioKm": 15
       }
     },
@@ -6284,9 +6269,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Borgaro Torinese — Via Lanzo ang. Stati Uniti",
-        "lat": 45.145,
-        "lon": 7.656,
+        "nome": "Benevento — Via Napoli, 17/19/21",
+        "lat": 41.127,
+        "lon": 14.776,
         "raggioKm": 15
       }
     },
@@ -6314,9 +6299,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Chivasso — Corso G. Ferraris",
-        "lat": 45.191,
-        "lon": 7.896,
+        "nome": "Borgaro Torinese — Via Lanzo ang. Stati Uniti",
+        "lat": 45.145,
+        "lon": 7.656,
         "raggioKm": 15
       }
     },
@@ -6344,9 +6329,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Collegno — C.so F.lli Cervi",
-        "lat": 45.079,
-        "lon": 7.588,
+        "nome": "Chivasso — Corso G. Ferraris",
+        "lat": 45.191,
+        "lon": 7.896,
         "raggioKm": 15
       }
     },
@@ -6374,9 +6359,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Cuorgnè — Via Torino, 16",
-        "lat": 45.39,
-        "lon": 7.653,
+        "nome": "Collegno — C.so F.lli Cervi",
+        "lat": 45.079,
+        "lon": 7.588,
         "raggioKm": 15
       }
     },
@@ -6402,6 +6387,21 @@
       "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+      ],
+      "zona": {
+        "nome": "Cuorgnè — Via Torino, 16",
+        "lat": 45.39,
+        "lon": 7.653,
+        "raggioKm": 15
+      }
+    },
+    {
+      "catena": "Eurospin",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "pagine": [
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Leinì — viale Europa, 19",
@@ -6412,11 +6412,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Leinì — viale Europa, 19",
@@ -6442,21 +6442,6 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
-      "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
-      ],
-      "zona": {
-        "nome": "Montalto Dora — Via Aosta 77",
-        "lat": 45.498,
-        "lon": 7.859,
-        "raggioKm": 15
-      }
-    },
-    {
-      "catena": "Eurospin",
       "validoDal": "2026-10-22",
       "validoAl": "2026-11-01",
       "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
@@ -6479,9 +6464,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Nichelino — Via Giusti, 67",
-        "lat": 44.994,
-        "lon": 7.653,
+        "nome": "Montalto Dora — Via Aosta 77",
+        "lat": 45.498,
+        "lon": 7.859,
         "raggioKm": 15
       }
     },
@@ -6507,6 +6492,21 @@
       "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+      ],
+      "zona": {
+        "nome": "Nichelino — Via Giusti, 67",
+        "lat": 44.994,
+        "lon": 7.653,
+        "raggioKm": 15
+      }
+    },
+    {
+      "catena": "Eurospin",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "pagine": [
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Orbassano — Strada per Piossasco",
@@ -6517,11 +6517,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Orbassano — Strada per Piossasco",
@@ -6547,11 +6547,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Paolisi — SS 7 Via Appia, Km 238,000",
@@ -6562,11 +6562,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Paolisi — SS 7 Via Appia, Km 238,000",
@@ -6592,21 +6592,6 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
-      "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
-      ],
-      "zona": {
-        "nome": "Piossasco — Via Susa",
-        "lat": 45,
-        "lon": 7.467,
-        "raggioKm": 15
-      }
-    },
-    {
-      "catena": "Eurospin",
       "validoDal": "2026-10-22",
       "validoAl": "2026-11-01",
       "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
@@ -6627,6 +6612,21 @@
       "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+      ],
+      "zona": {
+        "nome": "Piossasco — Via Susa",
+        "lat": 45,
+        "lon": 7.467,
+        "raggioKm": 15
+      }
+    },
+    {
+      "catena": "Eurospin",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "pagine": [
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Rivarolo Canavese — Corso Re Arduino",
@@ -6637,11 +6637,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Rivarolo Canavese — Corso Re Arduino",
@@ -6667,11 +6667,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Rivoli — C.so Luigi Einaudi, 80/A",
@@ -6682,11 +6682,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Rivoli — C.so Luigi Einaudi, 80/A",
@@ -6712,21 +6712,6 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
-      "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
-      ],
-      "zona": {
-        "nome": "S.Salvatore Telesino — Via Bagni Vecchi,35",
-        "lat": 41.223,
-        "lon": 14.522,
-        "raggioKm": 15
-      }
-    },
-    {
-      "catena": "Eurospin",
       "validoDal": "2026-10-22",
       "validoAl": "2026-11-01",
       "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
@@ -6749,9 +6734,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "San Maurizio Canavese — Via Torino",
-        "lat": 45.213,
-        "lon": 7.614,
+        "nome": "S.Salvatore Telesino — Via Bagni Vecchi,35",
+        "lat": 41.223,
+        "lon": 14.522,
         "raggioKm": 15
       }
     },
@@ -6777,6 +6762,21 @@
       "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+      ],
+      "zona": {
+        "nome": "San Maurizio Canavese — Via Torino",
+        "lat": 45.213,
+        "lon": 7.614,
+        "raggioKm": 15
+      }
+    },
+    {
+      "catena": "Eurospin",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "pagine": [
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Sant'Agata de' Goti — S.P. 121 Contrada Capellino, snc",
@@ -6787,11 +6787,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Sant'Agata de' Goti — S.P. 121 Contrada Capellino, snc",
@@ -6817,21 +6817,6 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
-      "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
-      ],
-      "zona": {
-        "nome": "Settimo Torinese — Via Torino 72",
-        "lat": 45.133,
-        "lon": 7.759,
-        "raggioKm": 15
-      }
-    },
-    {
-      "catena": "Eurospin",
       "validoDal": "2026-10-22",
       "validoAl": "2026-11-01",
       "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
@@ -6854,9 +6839,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Susa — Corso Stati Uniti 41",
-        "lat": 45.137,
-        "lon": 7.059,
+        "nome": "Settimo Torinese — Via Torino 72",
+        "lat": 45.133,
+        "lon": 7.759,
         "raggioKm": 15
       }
     },
@@ -6882,6 +6867,21 @@
       "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
+      ],
+      "zona": {
+        "nome": "Susa — Corso Stati Uniti 41",
+        "lat": 45.137,
+        "lon": 7.059,
+        "raggioKm": 15
+      }
+    },
+    {
+      "catena": "Eurospin",
+      "validoDal": "2026-10-22",
+      "validoAl": "2026-11-01",
+      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "pagine": [
+        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
       ],
       "zona": {
         "nome": "Torino — Via F.lli Garrone",
@@ -6892,11 +6892,11 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-22",
-      "validoAl": "2026-11-01",
-      "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
         "nome": "Torino — Via F.lli Garrone",
@@ -6922,21 +6922,6 @@
     },
     {
       "catena": "Eurospin",
-      "validoDal": "2026-10-19",
-      "validoAl": "2026-10-25",
-      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
-      "pagine": [
-        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
-      ],
-      "zona": {
-        "nome": "Torino — C.so Grosseto",
-        "lat": 45.104,
-        "lon": 7.686,
-        "raggioKm": 15
-      }
-    },
-    {
-      "catena": "Eurospin",
       "validoDal": "2026-10-22",
       "validoAl": "2026-11-01",
       "fonte": "https://digitalflyer.eurospin.it/files/05b08c46-3eaf-4bea-bb6d-3a24a91e6737/EIT-SPESA.pdf",
@@ -6959,9 +6944,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Torino — Corso Vercelli",
-        "lat": 45.108,
-        "lon": 7.694,
+        "nome": "Torino — C.so Grosseto",
+        "lat": 45.104,
+        "lon": 7.686,
         "raggioKm": 15
       }
     },
@@ -6989,9 +6974,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Torino — Via Cigna, 115",
-        "lat": 45.092,
-        "lon": 7.685,
+        "nome": "Torino — Corso Vercelli",
+        "lat": 45.108,
+        "lon": 7.694,
         "raggioKm": 15
       }
     },
@@ -7019,9 +7004,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Torino — Via Pirano, 32 A/1",
-        "lat": 45.103,
-        "lon": 7.644,
+        "nome": "Torino — Via Cigna, 115",
+        "lat": 45.092,
+        "lon": 7.685,
         "raggioKm": 15
       }
     },
@@ -7049,9 +7034,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Torino — Via Lanzo  132",
-        "lat": 45.113,
-        "lon": 7.66,
+        "nome": "Torino — Via Pirano, 32 A/1",
+        "lat": 45.103,
+        "lon": 7.644,
         "raggioKm": 15
       }
     },
@@ -7079,9 +7064,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Torino — Via Rio De Janeiro, 25",
-        "lat": 45.058,
-        "lon": 7.65,
+        "nome": "Torino — Via Lanzo  132",
+        "lat": 45.113,
+        "lon": 7.66,
         "raggioKm": 15
       }
     },
@@ -7109,9 +7094,9 @@
         "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
       "zona": {
-        "nome": "Torino — Corso Orbassano, 470/6",
-        "lat": 45.032,
-        "lon": 7.614,
+        "nome": "Torino — Via Rio De Janeiro, 25",
+        "lat": 45.058,
+        "lon": 7.65,
         "raggioKm": 15
       }
     },
@@ -7131,60 +7116,19 @@
       }
     },
     {
-      "catena": "Pro7",
-      "validoDal": "2026-10-01",
-      "validoAl": "2026-10-23",
-      "fonte": "https://pro7.volantinopiu.com/volantino2888700.html",
+      "catena": "Eurospin",
+      "validoDal": "2026-10-19",
+      "validoAl": "2026-10-25",
+      "fonte": "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf",
       "pagine": [
-        "https://resources.volantinopiu.it/flyer/2/8/8/8/7/pagine/1.jpg",
-        "https://resources.volantinopiu.it/flyer/2/8/8/8/7/pagine/2.jpg",
-        "https://resources.volantinopiu.it/flyer/2/8/8/8/7/pagine/3.jpg",
-        "https://resources.volantinopiu.it/flyer/2/8/8/8/7/pagine/4.jpg",
-        "https://resources.volantinopiu.it/flyer/2/8/8/8/7/pagine/5.jpg",
-        "https://resources.volantinopiu.it/flyer/2/8/8/8/7/pagine/6.jpg"
+        "https://digitalflyer.eurospin.it/files/0f31d51d-672d-49fc-9cba-bab4de824868/EIT-DAMP.pdf"
       ],
-      "formato": "Supermercati"
-    },
-    {
-      "catena": "Pro7",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-23",
-      "fonte": "https://pro7.volantinopiu.com/volantino2916500.html",
-      "pagine": [
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/1.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/2.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/3.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/4.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/5.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/6.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/7.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/8.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/9.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/10.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/11.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/12.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/13.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/14.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/15.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/16.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/17.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/18.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/19.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/20.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/21.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/22.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/23.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/24.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/25.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/26.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/27.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/28.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/29.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/30.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/31.jpg",
-        "https://resources.volantinopiu.it/flyer/2/9/1/6/5/pagine/32.jpg"
-      ],
-      "formato": "Supermercati"
+      "zona": {
+        "nome": "Torino — Corso Orbassano, 470/6",
+        "lat": 45.032,
+        "lon": 7.614,
+        "raggioKm": 15
+      }
     },
     {
       "catena": "Pro7",
