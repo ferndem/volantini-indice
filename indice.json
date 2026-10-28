@@ -1,5 +1,5 @@
 {
-  "generatoIl": "2026-10-27",
+  "generatoIl": "2026-10-28",
   "catene": [
     {
       "catena": "Carrefour Market",
@@ -977,6 +977,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-torino-corso-turati-n75/0546/-volantino-ipermercato-carrefour-iper-torino-corso-turati-n75-0546-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "TORINO — CORSO TURATI N.75",
+        "lat": 45.047192,
+        "lon": 7.663341,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-torino-corso-turati-n75/0546/-volantino-ipermercato-carrefour-iper-torino-corso-turati-n75-0546-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -1462,6 +1484,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-torino-cso-montecucco-n-108/0755/-volantino-ipermercato-carrefour-iper-torino-cso-montecucco-n-108-0755-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "TORINO — C.SO MONTECUCCO N. 108",
+        "lat": 45.0656,
+        "lon": 7.6312,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-torino-cso-montecucco-n-108/0755/-volantino-ipermercato-carrefour-iper-torino-cso-montecucco-n-108-0755-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -1768,6 +1812,28 @@
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_26-27_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_28-29_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_30-31_slider.jpg"
+      ],
+      "zona": {
+        "nome": "TORINO — C.SO GROSSETO N. 330",
+        "lat": 45.1067,
+        "lon": 7.6521,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-torino-cso-grosseto-n-330/0754/-volantino-ipermercato-carrefour-iper-torino-cso-grosseto-n-330-0754-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
       ],
       "zona": {
         "nome": "TORINO — C.SO GROSSETO N. 330",
@@ -2249,6 +2315,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-grugliasco-via-crea-n-10/0418/-volantino-ipermercato-carrefour-iper-grugliasco-via-crea-n-10-0418-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "GRUGLIASCO — VIA CREA N. 10",
+        "lat": 45.055159,
+        "lon": 7.613431,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-grugliasco-via-crea-n-10/0418/-volantino-ipermercato-carrefour-iper-grugliasco-via-crea-n-10-0418-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -2558,6 +2646,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-moncalieri-via-vittime-di-bologna-n20/0530/-volantino-ipermercato-carrefour-iper-moncalieri-via-vittime-di-bologna-n20-0530-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "MONCALIERI — VIA VITTIME DI BOLOGNA N.20",
+        "lat": 44.997,
+        "lon": 7.693095,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-moncalieri-via-vittime-di-bologna-n20/0530/-volantino-ipermercato-carrefour-iper-moncalieri-via-vittime-di-bologna-n20-0530-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -2751,6 +2861,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-collegno-via-spagna-n10-12/1685/-volantino-ipermercato-carrefour-iper-collegno-via-spagna-n10-12-1685-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "COLLEGNO — VIA SPAGNA N.10/12",
+        "lat": 45.10104,
+        "lon": 7.589959,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-collegno-via-spagna-n10-12/1685/-volantino-ipermercato-carrefour-iper-collegno-via-spagna-n10-12-1685-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -2908,6 +3040,28 @@
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_26-27_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_28-29_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_30-31_slider.jpg"
+      ],
+      "zona": {
+        "nome": "NICHELINO — VIA CACCIATORI N. 111",
+        "lat": 45.0053,
+        "lon": 7.6288,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-nichelino-via-cacciatori-n-111/0756/-volantino-ipermercato-carrefour-iper-nichelino-via-cacciatori-n-111-0756-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
       ],
       "zona": {
         "nome": "NICHELINO — VIA CACCIATORI N. 111",
@@ -3234,6 +3388,28 @@
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_26-27_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_28-29_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_30-31_slider.jpg"
+      ],
+      "zona": {
+        "nome": "MONCALIERI — Corso Savona  69",
+        "lat": 44.9894,
+        "lon": 7.6989,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-moncalieri-corso-savona-69/2311/-volantino-ipermercato-carrefour-iper-moncalieri-corso-savona-69-2311-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
       ],
       "zona": {
         "nome": "MONCALIERI — Corso Savona  69",
@@ -3855,6 +4031,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-leini-strada-caselle-n76/0551/-volantino-ipermercato-carrefour-iper-leini-strada-caselle-n76-0551-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "LEINI' — STRADA CASELLE N.76",
+        "lat": 45.1826,
+        "lon": 7.708931,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-leini-strada-caselle-n76/0551/-volantino-ipermercato-carrefour-iper-leini-strada-caselle-n76-0551-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -4002,6 +4200,28 @@
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_26-27_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_28-29_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_30-31_slider.jpg"
+      ],
+      "zona": {
+        "nome": "RIVALTA DI TORINO — via Giaveno 18",
+        "lat": 45.0104,
+        "lon": 7.5169,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-rivalta-di-torino-via-giaveno-18/2117/-volantino-ipermercato-carrefour-iper-rivalta-di-torino-via-giaveno-18-2117-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
       ],
       "zona": {
         "nome": "RIVALTA DI TORINO — via Giaveno 18",
@@ -4287,6 +4507,28 @@
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_26-27_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_28-29_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_30-31_slider.jpg"
+      ],
+      "zona": {
+        "nome": "CHIVASSO — VIA GERBIDO 15",
+        "lat": 45.1858,
+        "lon": 7.8934,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-chivasso-via-gerbido-15/2166/-volantino-ipermercato-carrefour-iper-chivasso-via-gerbido-15-2166-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
       ],
       "zona": {
         "nome": "CHIVASSO — VIA GERBIDO 15",
@@ -4791,6 +5033,28 @@
     },
     {
       "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-pinerolo-via-giustetto-n-43/0757/-volantino-ipermercato-carrefour-iper-pinerolo-via-giustetto-n-43-0757-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
+      ],
+      "zona": {
+        "nome": "PINEROLO — VIA GIUSTETTO N. 43",
+        "lat": 44.8854,
+        "lon": 7.3335,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
       "validoDal": "2026-10-23",
       "validoAl": "2026-11-05",
       "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-pinerolo-via-giustetto-n-43/0757/-volantino-ipermercato-carrefour-iper-pinerolo-via-giustetto-n-43-0757-punti-sprint-payback-carrefour-iper-57037-carrefour-iper/57037",
@@ -5252,6 +5516,28 @@
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_26-27_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_28-29_slider.jpg",
         "https://gdodig-car.youroperator.it/volantini/iper_22_B_VINII/22_B_VINII_PIEMONTE/desktop/22_B_VINII_PIEMONTE_30-31_slider.jpg"
+      ],
+      "zona": {
+        "nome": "BUROLO — VIA LIGURIA N. 1",
+        "lat": 45.4691,
+        "lon": 7.9234,
+        "raggioKm": 12
+      }
+    },
+    {
+      "catena": "Carrefour Market",
+      "validoDal": "2026-11-02",
+      "validoAl": "2026-12-24",
+      "fonte": "https://www.carrefour.it/volantino/ipermercato-carrefour-iper-burolo-via-liguria-n-1/0752/-volantino-ipermercato-carrefour-iper-burolo-via-liguria-n-1-0752-catalogo-addobbo-carrefour-iper-57061-carrefour-iper/57061",
+      "pagine": [
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_0-1_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_2-3_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_4-5_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_6-7_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_8-9_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_10-11_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_12-13_slider.jpg",
+        "https://gdodig-car.youroperator.it/volantini/iper_24_C_ADDOB/24_C_ADDOB_01_LOMBARDIA/desktop/24_C_ADDOB_01_LOMBARDIA_14-15_slider.jpg"
       ],
       "zona": {
         "nome": "BUROLO — VIA LIGURIA N. 1",
@@ -7184,12 +7470,56 @@
       "formato": "Supermercati"
     },
     {
+      "catena": "Pro7",
+      "validoDal": "2026-10-29",
+      "validoAl": "2026-11-06",
+      "fonte": "https://pro7.volantinopiu.com/volantino2937700.html",
+      "pagine": [
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/1.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/2.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/3.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/4.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/5.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/6.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/7.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/8.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/9.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/10.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/11.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/12.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/13.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/14.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/15.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/16.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/17.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/18.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/19.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/20.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/21.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/22.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/23.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/24.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/25.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/26.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/27.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/28.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/29.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/30.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/31.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/32.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/33.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/34.jpg",
+        "https://resources.volantinopiu.it/flyer/2/9/3/7/7/pagine/35.jpg"
+      ],
+      "formato": "Supermercati"
+    },
+    {
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_BASE_RM_LZ.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_BASE_RM_LZpdf.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_BASE_RM_LZ.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_BASE_RM_LZpdf.pdf?x83294"
       ],
       "zona": {
         "nome": "Lazio",
@@ -7202,9 +7532,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_BASE_RM_LZ_ACC.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_IGES.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_BASE_RM_LZ_ACC.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_IGES.pdf?x83294"
       ],
       "zona": {
         "nome": "Lazio",
@@ -7217,39 +7547,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/08/IGES.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_PUGLIA.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/08/IGES.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Lazio",
-        "lat": 41.89,
-        "lon": 12.48,
-        "raggioKm": 120
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_IGES_ACC.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_IGES_ACC.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Lazio",
-        "lat": 41.89,
-        "lon": 12.48,
-        "raggioKm": 120
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_PUGLIA.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_PUGLIA.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_PUGLIA.pdf?x83294"
       ],
       "zona": {
         "nome": "Puglia",
@@ -7262,9 +7562,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_PUGLIA_ACC.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_ADDIS.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_PUGLIA_ACC.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_ADDIS.pdf?x83294"
       ],
       "zona": {
         "nome": "Puglia",
@@ -7277,39 +7577,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/08/ADDIS.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_SICILIA.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/08/ADDIS.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Puglia",
-        "lat": 41.12,
-        "lon": 16.87,
-        "raggioKm": 180
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_ADDIS_ACC.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_ADDIS_ACC.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Puglia",
-        "lat": 41.12,
-        "lon": 16.87,
-        "raggioKm": 180
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_SICILIA.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_SICILIA.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_SICILIA.pdf?x83294"
       ],
       "zona": {
         "nome": "Sicilia",
@@ -7322,9 +7592,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_SICILIA_ACC.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_SICILIA.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_SICILIA_ACC.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_SICILIA.pdf?x83294"
       ],
       "zona": {
         "nome": "Sicilia",
@@ -7337,99 +7607,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/08/SICILIA.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_UM-TO.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/08/SICILIA.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Sicilia",
-        "lat": 38.12,
-        "lon": 13.36,
-        "raggioKm": 200
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_SICILIA_ACC.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_SICILIA_ACC.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Sicilia",
-        "lat": 38.12,
-        "lon": 13.36,
-        "raggioKm": 200
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_ADRIATICO.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_ADRIATICO.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Abruzzo, Marche e Molise",
-        "lat": 42.35,
-        "lon": 13.4,
-        "raggioKm": 170
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_ADRIATICO_ACC.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_ADRIATICO_ACC.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Abruzzo, Marche e Molise",
-        "lat": 42.35,
-        "lon": 13.4,
-        "raggioKm": 170
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/08/ADDIS.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/08/ADDIS.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Abruzzo, Marche e Molise",
-        "lat": 42.35,
-        "lon": 13.4,
-        "raggioKm": 170
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_ADDIS_ACC.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_ADDIS_ACC.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Abruzzo, Marche e Molise",
-        "lat": 42.35,
-        "lon": 13.4,
-        "raggioKm": 170
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_UM-TO.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/10/OS_22_2026_UM-TO.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/10/OS_23_2026_UM-TO.pdf?x83294"
       ],
       "zona": {
         "nome": "Umbria e Toscana",
@@ -7442,39 +7622,9 @@
       "catena": "Todis",
       "validoDal": "2026-10-15",
       "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_UM-TO_ACC.pdf?x83294",
+      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_IGES.pdf?x83294",
       "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/OS_22_2026_UM-TO_ACC.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Umbria e Toscana",
-        "lat": 43.11,
-        "lon": 12.39,
-        "raggioKm": 150
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/08/IGES.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/08/IGES.pdf?x83294"
-      ],
-      "zona": {
-        "nome": "Umbria e Toscana",
-        "lat": 43.11,
-        "lon": 12.39,
-        "raggioKm": 150
-      }
-    },
-    {
-      "catena": "Todis",
-      "validoDal": "2026-10-15",
-      "validoAl": "2026-10-28",
-      "fonte": "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_IGES_ACC.pdf?x83294",
-      "pagine": [
-        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-4_IGES_ACC.pdf?x83294"
+        "https://www.todis.it/wp-content/uploads/2026/03/VOLANTINO-ONLINE_PANIERE-5_IGES.pdf?x83294"
       ],
       "zona": {
         "nome": "Umbria e Toscana",
